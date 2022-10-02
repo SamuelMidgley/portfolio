@@ -1,8 +1,9 @@
 import "./App.css";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Projects from "./Projects";
+import Projects from "./projects/Projects";
 import Home from "./Home";
+import Wordle from "./projects/wordle/Wordle";
 
 export default function App() {
   return (
@@ -20,17 +21,13 @@ export default function App() {
                 Projects
               </Link>
             </li>
-            <li>
-              <Link className="nav-link" to="/users">
-                Users
-              </Link>
-            </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/wordle" element={<Wordle />} />
         </Routes>
       </div>
     </Router>

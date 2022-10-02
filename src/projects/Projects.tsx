@@ -1,0 +1,81 @@
+import ProjectCard from "./ProjectCard";
+
+import { ProjectCardProps } from "./projects.types";
+
+const projects: ProjectCardProps[] = [
+  {
+    title: "Wordle",
+    url: "wordle",
+    summary:
+      "Wordle wordle wordle wordle wordle wordle wordle wordle wordle wordle wordle",
+    backgroundImage: "url(img/riddle.jpg)",
+    isLocal: true,
+  },
+  {
+    title: "Three.js Solar System",
+    url: "threejs-fun",
+    summary:
+      "A <i>(semi)</i> accurate model of The Solar System written in Three.js. Repo includes hosted page.",
+    backgroundImage: "url(img/solar.jfif)",
+    isLocal: false,
+  },
+  {
+    title: "RL Trader",
+    url: "rl-trader",
+    summary:
+      "Different attempts at using Reinforcement Learning to create a trading bot",
+    backgroundImage: "url(img/stonks.jpg)",
+    isLocal: false,
+  },
+  {
+    title: "Tic Tac Go",
+    url: "tic-tac-go",
+    summary:
+      "Tic Tac Toe written in Go! Includes an unbeatable AI using the Minimax algorithm",
+    backgroundImage: "url(img/tictactoe.jpg)",
+    isLocal: false,
+  },
+  {
+    title: "RL Flocking",
+    url: "rl-flocking",
+    summary:
+      "Using Reinforcement Learning to train an AI sheepdog to herd a flock of sheep",
+    backgroundImage: "url(img/sheepherding.jpg)",
+    isLocal: false,
+  },
+  {
+    title: "RecSys for DTI",
+    url: "RecSys-for-DTI",
+    summary:
+      "Using an ML Recommender System to predict the interactions of drugs and proteins",
+    backgroundImage: "url(img/drugdev.jpg)",
+    isLocal: false,
+  },
+  {
+    title: "Riddle MVC",
+    url: "riddle-db",
+    summary:
+      "A simple CRUD application to store riddles using ASP.NET application with migrationsp",
+    backgroundImage: "url(img/riddle.jpg)",
+    isLocal: false,
+  },
+];
+
+export default function Projects() {
+  return (
+    <div className="grid-container">
+      {projects.map((project) => {
+        return (
+          <ProjectCard
+            key={(Math.random() * 1000000).toFixed(0)}
+            title={project.title}
+            url={project.url}
+            summary={project.summary}
+            backgroundImage={project.backgroundImage}
+            isLocal={project.isLocal}
+          />
+        );
+      })}
+    </div>
+  );
+}

@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+#root {
+  width: 100%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -114,6 +118,8 @@ ul .nav-link {
   position: relative;
   display: grid;
   align-content: center;
+  width: 34%;
+  margin: 0 33%;
 
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -185,8 +191,21 @@ body {
 .grid-container {
   padding: 15vh;
   display: grid;
-  grid-template-columns: 35ch 35ch;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10ch;
+  place-items: center;
+}
+
+@media (max-width: 1540px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1090px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .card {
