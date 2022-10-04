@@ -285,7 +285,7 @@ const Wordle = () => {
   }, [handleUserKeyPress]);
 
   return (
-    <div>
+    <div style={{ paddingTop: "75px" }}>
       <h1 className={classes.title}>Wordle</h1>
       <WordleBlock guesses={guesses} />
       <Keyboard

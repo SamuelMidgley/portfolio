@@ -7,10 +7,6 @@
   pointer-events: none;
 }
 
-#root {
-  width: 100%;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -118,8 +114,6 @@ ul .nav-link {
   position: relative;
   display: grid;
   align-content: center;
-  width: 34%;
-  margin: 0 33%;
 
   transition: transform 1s;
   transform-style: preserve-3d;

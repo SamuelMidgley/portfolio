@@ -12,12 +12,12 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/portfolio">
                 Home
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/projects">
+              <Link className="nav-link" to="/portfolio/projects">
                 Projects
               </Link>
             </li>
@@ -25,9 +25,9 @@ export default function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/wordle" element={<Wordle />} />
+          <Route path="/portfolio" element={<Home />} />
+          <Route path="/portfolio/projects" element={<Projects />} />
+          <Route path="/portfolio/projects/wordle" element={<Wordle />} />
         </Routes>
       </div>
     </Router>

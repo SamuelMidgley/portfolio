@@ -2,13 +2,16 @@ import ProjectCard from "./ProjectCard";
 
 import { ProjectCardProps } from "./projects.types";
 
+const urlPrefix =
+  "https://raw.githubusercontent.com/SamuelMidgley/portfolio/gh-pages/assets";
+
 const projects: ProjectCardProps[] = [
   {
     title: "Wordle",
-    url: "wordle",
+    url: "projects/wordle",
     summary:
       "Wordle wordle wordle wordle wordle wordle wordle wordle wordle wordle wordle",
-    backgroundImage: "url(img/riddle.jpg)",
+    backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: true,
   },
   {
@@ -16,7 +19,7 @@ const projects: ProjectCardProps[] = [
     url: "threejs-fun",
     summary:
       "A <i>(semi)</i> accurate model of The Solar System written in Three.js. Repo includes hosted page.",
-    backgroundImage: "url(img/solar.jfif)",
+    backgroundImage: `url(${urlPrefix}/solar.jpg)`,
     isLocal: false,
   },
   {
@@ -24,7 +27,7 @@ const projects: ProjectCardProps[] = [
     url: "rl-trader",
     summary:
       "Different attempts at using Reinforcement Learning to create a trading bot",
-    backgroundImage: "url(img/stonks.jpg)",
+    backgroundImage: `url(${urlPrefix}/stonks.jpg)`,
     isLocal: false,
   },
   {
@@ -32,7 +35,7 @@ const projects: ProjectCardProps[] = [
     url: "tic-tac-go",
     summary:
       "Tic Tac Toe written in Go! Includes an unbeatable AI using the Minimax algorithm",
-    backgroundImage: "url(img/tictactoe.jpg)",
+    backgroundImage: `url(${urlPrefix}/tictactoe.jpg)`,
     isLocal: false,
   },
   {
@@ -40,7 +43,7 @@ const projects: ProjectCardProps[] = [
     url: "rl-flocking",
     summary:
       "Using Reinforcement Learning to train an AI sheepdog to herd a flock of sheep",
-    backgroundImage: "url(img/sheepherding.jpg)",
+    backgroundImage: `url(${urlPrefix}/sheepherding.jpg)`,
     isLocal: false,
   },
   {
@@ -48,7 +51,7 @@ const projects: ProjectCardProps[] = [
     url: "RecSys-for-DTI",
     summary:
       "Using an ML Recommender System to predict the interactions of drugs and proteins",
-    backgroundImage: "url(img/drugdev.jpg)",
+    backgroundImage: `url(${urlPrefix}/drugdev.jpg)`,
     isLocal: false,
   },
   {
@@ -56,7 +59,7 @@ const projects: ProjectCardProps[] = [
     url: "riddle-db",
     summary:
       "A simple CRUD application to store riddles using ASP.NET application with migrationsp",
-    backgroundImage: "url(img/riddle.jpg)",
+    backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
   },
 ];

@@ -8,7 +8,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         <h2 className="card-title">{props.title}</h2>
         <p className="card-body">{props.summary}</p>
         {props.isLocal ? (
-          <Link to={props.url}>
+          <Link to={`/portfolio/${props.url}`}>
             <div className="button">Learn More</div>
           </Link>
         ) : (
