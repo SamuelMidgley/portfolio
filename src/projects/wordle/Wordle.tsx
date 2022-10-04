@@ -5,6 +5,7 @@ import { Guess, LetterState } from "./wordle.types";
 import classes from "./Wordle.module.css";
 import { correctWordBreakdown, theBigBoy } from "./wordleHelper";
 import dictionaryAPI from "./api";
+import Modal from "../../components/Modal";
 
 const allGuesses: Guess[] = [
   {
@@ -185,6 +186,7 @@ const Wordle = () => {
   const [letterIdx, setLetterIdx] = useState(0);
   const [guesses, setGuesses] = useState(allGuesses);
   const [keyboardState, setKeyboardState] = useState(keyboardStateStart);
+  const [showModal, setShowModal] = useState(false);
 
   // Handle submit
   const submitHandler = useCallback(async () => {
@@ -216,9 +218,15 @@ const Wordle = () => {
     }
 
     const array = theBigBoy(currentGuess, keyboardState, correctWord);
+
     let processedKeyboardState = array.keyboardState;
     let processedGuessObject = array.guessObject;
     processedGuessObject.validWord = true;
+
+    if (processedGuessObject.correct === true) {
+      setShowModal(true);
+      return;
+    }
 
     setKeyboardState(processedKeyboardState);
     setGuesses((prevGuesses) =>
@@ -277,6 +285,10 @@ const Wordle = () => {
     [keyboardHandler, submitHandler]
   );
 
+  const modalClickHandler = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleUserKeyPress);
     return () => {
@@ -292,6 +304,13 @@ const Wordle = () => {
         keyboardState={keyboardState}
         handleKeyPress={keyboardHandler}
         handleSubmit={submitHandler}
+      />
+      <Modal
+        title="Well done!"
+        message="Reckon you can do it again?"
+        button="Close"
+        isOpen={showModal}
+        toggleModal={modalClickHandler}
       />
     </div>
   );

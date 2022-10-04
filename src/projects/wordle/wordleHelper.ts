@@ -91,6 +91,14 @@ export function theBigBoy(
     }
   }
   guessObject.submitted = true;
-  console.log(keyboardState);
+
+  const isCorrect = guessObject.guess.filter(
+    (LetterState) => LetterState.state === "correct"
+  );
+
+  if (isCorrect.length === 5) {
+    guessObject.correct = true;
+  }
+
   return { guessObject, keyboardState };
 }

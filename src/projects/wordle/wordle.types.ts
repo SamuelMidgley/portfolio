@@ -3,6 +3,7 @@ export interface Guess {
   guess: LetterState[];
   validWord?: boolean;
   submitted: boolean;
+  correct?: boolean;
 }
 
 export interface CorrectWord {

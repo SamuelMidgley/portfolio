@@ -1,0 +1,22 @@
+.card {
+  height: 40%;
+  width: 40%;
+  border-radius: 4px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--clr-neutral-100);
+  background: hsl(209, 18%, 32%);
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.message {
+}
+
+.button {
+}
