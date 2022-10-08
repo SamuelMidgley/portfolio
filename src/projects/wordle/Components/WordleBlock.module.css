@@ -1,10 +1,21 @@
+.wordle_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
 .wordle {
-    margin: 0 25%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .word_block {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
 }

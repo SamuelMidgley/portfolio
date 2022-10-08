@@ -54,10 +54,9 @@ body {
 
 nav {
   width: 100%;
-  position: fixed;
   z-index: 5;
-  left: 0px;
-  top: 0px;
+  position: sticky;
+  top: 0;
   padding: 1em;
   background: hsl(207, 19%, 9%);
 }
@@ -175,9 +174,6 @@ ul .nav-link {
 }
 
 body {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
   line-height: 1.6;
   background: var(--clr-neutral-900);
 }
@@ -203,11 +199,10 @@ body {
 }
 
 #modal {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card {
@@ -348,4 +343,14 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cool_thing {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.content {
+  width: 400px;
 }

@@ -68,6 +68,18 @@ const allGuesses: Guess[] = [
     validWord: true,
     submitted: false,
   },
+  {
+    id: 5,
+    guess: [
+      { letter: "", state: "" },
+      { letter: "", state: "" },
+      { letter: "", state: "" },
+      { letter: "", state: "" },
+      { letter: "", state: "" },
+    ],
+    validWord: true,
+    submitted: false,
+  },
 ];
 
 const keyboardStateStart: LetterState[] = [
@@ -297,8 +309,8 @@ const Wordle = () => {
   }, [handleUserKeyPress]);
 
   return (
-    <div style={{ paddingTop: "75px" }}>
-      <h1 className={classes.title}>Wordle</h1>
+    <div className={classes.board}>
+      {/* <h1 className={classes.title}>Wordle</h1> */}
       <WordleBlock guesses={guesses} />
       <Keyboard
         keyboardState={keyboardState}

@@ -43,6 +43,13 @@ const Keyboard = (props: KeyboardProps) => {
         ))}
       </div>
       <div className={classes.keyboard_row}>
+        <button
+          onClick={submitHandler}
+          className={classes.submit}
+          value="Submit"
+        >
+          ENTER
+        </button>
         {row3.map((letterState) => (
           <button
             key={letterState.letter}
@@ -58,16 +65,24 @@ const Keyboard = (props: KeyboardProps) => {
           className={classes.delete}
           value="Delete"
         >
-          Delete
-        </button>
-      </div>
-      <div className={classes.keyboard_row}>
-        <button
-          onClick={submitHandler}
-          value="Submit"
-          className={classes.submit}
-        >
-          Submit
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 18"
+          >
+            <g
+              fill="none"
+              fillRule="evenodd"
+              stroke="#FFFFFF"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              transform="translate(1 1)"
+            >
+              <path d="M20 0H7L0 8l7 8h13a2 2 0 002-2V2a2 2 0 00-2-2zM17 5l-6 6M11 5l6 6" />
+            </g>
+          </svg>
         </button>
       </div>
     </div>

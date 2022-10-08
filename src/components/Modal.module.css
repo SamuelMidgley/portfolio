@@ -1,8 +1,14 @@
-.card {
-  height: 40%;
-  width: 40%;
+/* .card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.card_content {
+  height: 300px;
+  width: 300px;
   border-radius: 4px;
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

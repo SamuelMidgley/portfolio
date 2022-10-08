@@ -14,11 +14,13 @@ const Modal = (props: modalProps) => {
   const modalNode = document.getElementById("modal") as HTMLElement;
   return ReactDOM.createPortal(
     <div className={classes.card}>
-      <span className={classes.title}>{props.title}</span>
-      <span className={classes.message}>{props.message}</span>
-      <button className={classes.button} onClick={props.toggleModal}>
-        {props.button}
-      </button>
+      <div className={classes.card_content}>
+        <span className={classes.title}>{props.title}</span>
+        <span className={classes.message}>{props.message}</span>
+        <button className={classes.button} onClick={props.toggleModal}>
+          {props.button}
+        </button>
+      </div>
     </div>,
     modalNode
   );
