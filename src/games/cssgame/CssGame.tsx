@@ -14,28 +14,23 @@ const generateRandomRGB = (): string => {
 }
 
 const CssGame = () => {
-  const [isCorrect, setIsCorrect] = useState(false)
+  const [numCorrect, setNumCorrect] = useState(0)
   const [correctColorIdx, setCorrectColorIdx] = useState(randInt(2))
   const [colors, setColors] = useState([
     generateRandomRGB(),
     generateRandomRGB(),
     generateRandomRGB(),
   ])
-  const [hasGuessed, setHasGuessed] = useState(false)
 
   const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!hasGuessed) {
-      setHasGuessed(true)
-    }
-
     if (
       (event.target as HTMLButtonElement).innerHTML === colors[correctColorIdx]
     ) {
-      setIsCorrect(true)
+      setNumCorrect((prevNumCorrect) => prevNumCorrect + 1)
       setColors([generateRandomRGB(), generateRandomRGB(), generateRandomRGB()])
       setCorrectColorIdx(randInt(2))
     } else {
-      setIsCorrect(false)
+      setNumCorrect(0)
     }
   }
 
@@ -46,7 +41,7 @@ const CssGame = () => {
         style={{ backgroundColor: colors[correctColorIdx] }}
       ></div>
       <div className="cssgame-options">
-        {colors.map((color, idx) => {
+        {colors.map((color) => {
           return (
             <button
               key={randInt(10000)}
@@ -58,12 +53,7 @@ const CssGame = () => {
           )
         })}
       </div>
-      {hasGuessed &&
-        (isCorrect ? (
-          <div className="cssgame-message">Correct</div>
-        ) : (
-          <div className="cssgame-message">Wrong</div>
-        ))}
+      <div className="cssgame-message">{`${numCorrect} in a row!`}</div>
     </div>
   )
 }
