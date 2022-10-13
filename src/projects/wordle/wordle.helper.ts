@@ -5,6 +5,7 @@ import {
   CharCount,
 } from "./wordle.types";
 
+// Definitely a test for this
 function countOccurance(word: string): CharCount[] {
   const charCount: CharCount[] = [];
 
@@ -39,6 +40,9 @@ export function correctWordBreakdown(word: string): CorrectWordBreakdown {
   return fullBreakdown;
 }
 
+// This needs to be split into two extra functions
+// One for keyboard
+// One for board
 export function theBigBoy(
   guessObject: Guess,
   keyboardState: LetterState[],
@@ -61,8 +65,8 @@ export function theBigBoy(
       guessObject.guess[index].state = "correct";
 
       // Update the state of the keyboard
-      keyboardState.map((letterState) => {
-        return letterState.letter === guessLetter
+      keyboardState = keyboardState.map((letterState) => {
+        return letterState.letter === guessLetter.toUpperCase()
           ? { ...letterState, state: "correct" }
           : { ...letterState };
       });
@@ -78,16 +82,28 @@ export function theBigBoy(
         guessObject.guess[index].state = "nearly";
 
         // Update the state of the keyboard
-        keyboardState.map((letterState) => {
-          return letterState.letter === guessLetter
+        keyboardState = keyboardState.map((letterState) => {
+          return letterState.letter.toLowerCase() === guessLetter
             ? { ...letterState, state: "nearly" }
             : { ...letterState };
         });
       } else {
         guessObject.guess[index].state = "incorrect";
+        // Update the state of the keyboard
+        keyboardState = keyboardState.map((letterState) => {
+          return letterState.letter.toLowerCase() === guessLetter
+            ? { ...letterState, state: "incorrect" }
+            : { ...letterState };
+        });
       }
     } else {
       guessObject.guess[index].state = "incorrect";
+      // Update the state of the keyboard
+      keyboardState = keyboardState.map((letterState) => {
+        return letterState.letter.toLowerCase() === guessLetter
+          ? { ...letterState, state: "incorrect" }
+          : { ...letterState };
+      });
     }
   }
   guessObject.submitted = true;
