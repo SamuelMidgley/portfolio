@@ -1,0 +1,36 @@
+.cssgame-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  color: wheat;
+}
+
+.cssgame-color_block {
+  height: 200px;
+  width: 200px;
+  background-color: aliceblue;
+}
+
+.cssgame-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  padding: 2em;
+}
+
+.cssgame-option {
+  background-color: darkgray;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.cssgame-messages {
+}
+
+@media (max-width: 600px) {
+  .cssgame-options {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1em;
+  }
+}
