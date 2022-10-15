@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import './CssGame.css'
-
-const randInt = (toNum: number): number => {
-  return Math.floor(Math.random() * toNum + 1)
-}
-
-const generateRandomRGB = (): string => {
-  let r = randInt(255)
-  let g = randInt(255)
-  let b = randInt(255)
-
-  return `rgb(${r}, ${g}, ${b})`
-}
+import { generateHexCode, generateRandomRGB, randInt } from './cssgame.helper'
 
 const CssGame = () => {
   const [numCorrect, setNumCorrect] = useState(0)
@@ -23,15 +12,25 @@ const CssGame = () => {
   ])
 
   const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (
+    const isCorrect =
       (event.target as HTMLButtonElement).innerHTML === colors[correctColorIdx]
-    ) {
-      setNumCorrect((prevNumCorrect) => prevNumCorrect + 1)
+
+    if (numCorrect > 0 && numCorrect % 4 === 0 && isCorrect) {
+      console.log(numCorrect)
+      console.log('we in here')
+      // let's spice it up and throw a hex code in there
+      setColors([generateHexCode(), generateHexCode(), generateHexCode()])
+    } else {
       setColors([generateRandomRGB(), generateRandomRGB(), generateRandomRGB()])
-      setCorrectColorIdx(randInt(2))
+    }
+
+    if (isCorrect) {
+      setNumCorrect((prevNumCorrect) => prevNumCorrect + 1)
     } else {
       setNumCorrect(0)
     }
+
+    setCorrectColorIdx(randInt(2))
   }
 
   return (
@@ -53,7 +52,9 @@ const CssGame = () => {
           )
         })}
       </div>
-      <div className="cssgame-message">{`${numCorrect} in a row!`}</div>
+      {numCorrect > 0 && (
+        <div className="cssgame-message">{`${numCorrect} in a row!`}</div>
+      )}
     </div>
   )
 }
