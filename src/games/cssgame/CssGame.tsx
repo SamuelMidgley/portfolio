@@ -16,8 +16,6 @@ const CssGame = () => {
       (event.target as HTMLButtonElement).innerHTML === colors[correctColorIdx]
 
     if (numCorrect > 0 && numCorrect % 4 === 0 && isCorrect) {
-      console.log(numCorrect)
-      console.log('we in here')
       // let's spice it up and throw a hex code in there
       setColors([generateHexCode(), generateHexCode(), generateHexCode()])
     } else {

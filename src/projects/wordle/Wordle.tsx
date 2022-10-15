@@ -5,7 +5,7 @@ import { Guess, LetterState } from './wordle.types'
 import classes from './Wordle.module.css'
 import { correctWordBreakdown, theBigBoy } from './wordle.helper'
 import dictionaryAPI from './api'
-import Modal from '../../components/Modal'
+import Modal from '../../components/modal/Modal'
 
 const allGuesses: Guess[] = [
   {

@@ -35,18 +35,18 @@ const singleValToHex = (val: number): string => {
   return hex
 }
 
-const valToHex = (val: number): string => {
+export const valToHex = (val: number): string => {
   // yeah yeah awful naming
   const num = val / 16
   const int = Math.floor(num)
 
-  let firstVal = singleValToHex(int)
+  let firstHex = singleValToHex(int)
 
   const remainderThingy = Math.floor((num - int) * 16)
 
-  let secondVal = singleValToHex(remainderThingy)
+  let secondHex = singleValToHex(remainderThingy)
 
-  return `${firstVal}${secondVal}`
+  return `${firstHex}${secondHex}`
 }
 
 export const generateHexCode = (): string => {
