@@ -15,7 +15,6 @@ WIP
 
 ### Nav bar
 
-- Keep bars when tab is active
 - Improve positioning styling of nav bar
 
 ### Wordle

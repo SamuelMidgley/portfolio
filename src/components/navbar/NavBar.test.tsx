@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import App from '../../App'
 
@@ -8,8 +7,8 @@ test('renders nav bar', () => {
   const HomeLink = screen.getByText(/Home/i)
   expect(HomeLink).toBeInTheDocument()
 
-  const ProjectLink = screen.getByText(/Projects/i)
-  expect(ProjectLink).toBeInTheDocument()
+  const ProjectsLink = screen.getByText(/Projects/i)
+  expect(ProjectsLink).toBeInTheDocument()
 
   const GamesLink = screen.getByText(/Games/i)
   expect(GamesLink).toBeInTheDocument()

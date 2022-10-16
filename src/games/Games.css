@@ -1,0 +1,12 @@
+.games-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  color: wheat;
+}
+
+.games-menu > a {
+  padding: 50px;
+}

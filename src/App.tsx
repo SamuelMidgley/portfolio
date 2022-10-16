@@ -10,7 +10,9 @@ import Projects from './projects/Projects'
 import Home from './Home'
 import Wordle from './projects/wordle/Wordle'
 import NavBar from './components/navbar/NavBar'
+import Flocking from './games/flocking/Flocking'
 import CssGame from './games/cssgame/CssGame'
+import Games from './games/Games'
 
 export default function App() {
   return (
@@ -24,9 +26,13 @@ export default function App() {
             element={<Navigate to="/portfolio/home" />}
           />
           <Route path="/portfolio/home" element={<Home />} />
+
           <Route path="/portfolio/projects" element={<Projects />} />
           <Route path="/portfolio/projects/wordle" element={<Wordle />} />
-          <Route path="/portfolio/games" element={<CssGame />} />
+
+          <Route path="/portfolio/games" element={<Games />} />
+          <Route path="/portfolio/games/cssgame" element={<CssGame />} />
+          <Route path="/portfolio/games/flocking" element={<Flocking />} />
         </Routes>
       </div>
     </Router>
