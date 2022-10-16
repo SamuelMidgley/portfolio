@@ -1,5 +1,5 @@
 export const randInt = (toNum: number): number => {
-  return Math.floor(Math.random() * toNum + 1)
+  return Math.floor(Math.random() * (toNum + 1))
 }
 
 interface RGBVal {
