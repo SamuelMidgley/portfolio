@@ -1,6 +1,19 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
+import { PerspectiveCamera, Vector3 } from 'three'
 import './SolarSystem.css'
+
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+}
+
+const camera = new PerspectiveCamera(100, sizes.width / sizes.height, 0.1, 100)
+camera.position.x = 8
+camera.position.y = 15
+camera.position.z = 8
+// Point camera towards sun
+camera.lookAt(new Vector3(0, 0, 0))
 
 // Lights
 const KeyLight = ({ brightness, color }) => {
@@ -104,11 +117,10 @@ const Sphere = (props) => {
 const SolarSystem = () => {
   return (
     <div className="threejs-scene">
-      <Canvas>
+      <Canvas camera={camera}>
         <KeyLight brightness={5.6} color="#ffbdf4" />
         <FillLight brightness={2.6} color="#bdefff" />
         <RimLight brightness={54} color="#fff" />
-        {/* <Sphere position={[0, 0, 0]} args={[1, 16, 16]} /> */}
         <Sphere position={[2, 0, 0]} args={[0.5, 16, 16]} radius={1} />
         <Sphere position={[5, 0, 0]} args={[0.5, 16, 16]} radius={4} />
       </Canvas>
