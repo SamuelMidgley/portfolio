@@ -11,6 +11,10 @@
   width: 200px;
 }
 
+.cssgame-color_block:hover {
+  background-color: black;
+}
+
 .cssgame-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
