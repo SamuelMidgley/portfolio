@@ -1,6 +1,22 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { Mesh } from 'three'
+import { Canvas } from '@react-three/fiber'
 import './CssGame.css'
 import { generateHexCode, generateRandomRGB, randInt } from './cssgame.helper'
+
+const Box = (props: any) => {
+  const { color } = props
+  // This reference will give us direct access to the mesh
+  const mesh = useRef<Mesh>()
+  // Rotate mesh every frame, this is outside of React without overhead
+
+  return (
+    <mesh {...props} ref={mesh}>
+      <boxGeometry args={[5, 5, 5]} />
+      <meshBasicMaterial color={color} />
+    </mesh>
+  )
+}
 
 const CssGame = () => {
   const [numCorrect, setNumCorrect] = useState(0)
@@ -33,10 +49,12 @@ const CssGame = () => {
 
   return (
     <div className="cssgame-container">
-      <div
-        className="cssgame-color_block"
-        style={{ backgroundColor: colors[correctColorIdx] }}
-      ></div>
+      <div className="cssgame-color_block">
+        <Canvas>
+          <ambientLight />
+          <Box color={colors[correctColorIdx]} />
+        </Canvas>
+      </div>
       <div className="cssgame-options">
         {colors.map((color) => {
           return (

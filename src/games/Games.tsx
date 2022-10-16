@@ -8,7 +8,10 @@ const Games = () => {
         <div className="button">CSS Game</div>
       </Link>
       <Link to={`/portfolio/games/flocking`}>
-        <div className="button">Three Js stuff</div>
+        <div className="button">WIP</div>
+      </Link>
+      <Link to={`/portfolio/games/solarsystem`}>
+        <div className="button">Solar System</div>
       </Link>
     </div>
   )

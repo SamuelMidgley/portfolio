@@ -13,6 +13,7 @@ import NavBar from './components/navbar/NavBar'
 import Flocking from './games/flocking/Flocking'
 import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
+import SolarSystem from './projects/solarsystem/SolarSystem'
 
 export default function App() {
   return (
@@ -33,6 +34,10 @@ export default function App() {
           <Route path="/portfolio/games" element={<Games />} />
           <Route path="/portfolio/games/cssgame" element={<CssGame />} />
           <Route path="/portfolio/games/flocking" element={<Flocking />} />
+          <Route
+            path="/portfolio/games/solarsystem"
+            element={<SolarSystem />}
+          />
         </Routes>
       </div>
     </Router>
