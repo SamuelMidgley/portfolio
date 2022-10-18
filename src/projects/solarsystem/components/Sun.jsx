@@ -6,15 +6,9 @@ const Sun = (props) => {
   const mesh = useRef()
 
   return (
-    <mesh
-      position={position}
-      ref={mesh}
-      visible
-      userData={{ test: 'hello' }}
-      castShadow
-    >
+    <mesh position={position} ref={mesh} visible userData={{ test: 'hello' }}>
       <sphereGeometry attach="geometry" args={args} />
-      <meshStandardMaterial
+      <meshBasicMaterial
         attach="material"
         color="white"
         transparent
