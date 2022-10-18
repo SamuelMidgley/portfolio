@@ -32,7 +32,14 @@ export default function App() {
           <Route path="/portfolio/projects/wordle" element={<Wordle />} />
 
           <Route path="/portfolio/games" element={<Games />} />
-          <Route path="/portfolio/games/cssgame" element={<CssGame />} />
+          <Route
+            path="/portfolio/games/cssgame-cheat"
+            element={<CssGame easy={true} />}
+          />
+          <Route
+            path="/portfolio/games/cssgame"
+            element={<CssGame easy={false} />}
+          />
           <Route path="/portfolio/games/flocking" element={<Flocking />} />
           <Route
             path="/portfolio/games/solarsystem"

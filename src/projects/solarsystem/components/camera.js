@@ -12,9 +12,9 @@ const createCamera = () => {
     0.1,
     100,
   )
-  camera.position.x = 8
-  camera.position.y = 15
-  camera.position.z = 8
+  camera.position.x = 4
+  camera.position.y = 10
+  camera.position.z = 4
   // Point camera towards sun
   camera.lookAt(new Vector3(0, 0, 0))
 

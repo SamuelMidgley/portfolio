@@ -41,7 +41,11 @@ const Canvas = (props: CanvasProps) => {
   return <canvas height="200px" width="200px" ref={canvasRef} />
 }
 
-const CssGame = () => {
+interface CssGameProps {
+  easy: boolean
+}
+
+const CssGame = (props: CssGameProps) => {
   const [numCorrect, setNumCorrect] = useState(0)
   const [correctColorIdx, setCorrectColorIdx] = useState(randInt(2))
   const [colors, setColors] = useState([
@@ -81,13 +85,21 @@ const CssGame = () => {
 
   return (
     <div className="cssgame-container">
-      <div
-        onMouseEnter={onMouseEnterHandler}
-        onMouseLeave={onMouseLeaveHandler}
-        className="cssgame-color_block"
-      >
-        <Canvas hover={isHover} backgroundColor={colors[correctColorIdx]} />
-      </div>
+      {props.easy ? (
+        <div
+          className="cssgame-color_block"
+          style={{ backgroundColor: colors[correctColorIdx] }}
+        ></div>
+      ) : (
+        <div
+          onMouseEnter={onMouseEnterHandler}
+          onMouseLeave={onMouseLeaveHandler}
+          className="cssgame-color_block"
+        >
+          <Canvas hover={isHover} backgroundColor={colors[correctColorIdx]} />
+        </div>
+      )}
+
       <div className="cssgame-options">
         {colors.map((color) => {
           return (

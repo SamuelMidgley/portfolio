@@ -1,16 +1,9 @@
 import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
 
-const Planet = (props) => {
-  const { position, args, radius, offset } = props
+const Sun = (props) => {
+  const { position, args } = props
 
   const mesh = useRef()
-  useFrame((state) => {
-    mesh.current.position.x =
-      radius * Math.cos((offset * state.clock.elapsedTime) / 2)
-    mesh.current.position.z =
-      radius * Math.sin((offset * state.clock.elapsedTime) / 2)
-  })
 
   return (
     <mesh
@@ -32,4 +25,4 @@ const Planet = (props) => {
   )
 }
 
-export default Planet
+export default Sun

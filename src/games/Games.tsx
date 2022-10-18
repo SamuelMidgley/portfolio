@@ -4,6 +4,9 @@ import './Games.css'
 const Games = () => {
   return (
     <div className="games-menu">
+      <Link to={`/portfolio/games/cssgame-cheat`}>
+        <div className="button">CSS Game (Cheat)</div>
+      </Link>
       <Link to={`/portfolio/games/cssgame`}>
         <div className="button">CSS Game</div>
       </Link>
