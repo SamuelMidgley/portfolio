@@ -1,0 +1,13 @@
+.timed-div {
+  position: absolute;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.timed-div-text {
+  background: hsl(207, 19%, 9%);
+  padding: 10px;
+  color: white;
+  border-radius: 3px;
+}

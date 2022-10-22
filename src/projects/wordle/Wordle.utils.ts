@@ -1,5 +1,15 @@
 import { Guess, LetterState } from './wordle.types'
 
+export const correctWords = [
+  'HOUSE',
+  'GHOUL',
+  'EPOCH',
+  'BREAD',
+  'GROUT',
+  'GHOST',
+  'RHYME',
+]
+
 export const allGuesses: Guess[] = [
   {
     id: 0,

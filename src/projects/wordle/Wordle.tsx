@@ -5,9 +5,8 @@ import classes from './Wordle.module.css'
 import { correctWordBreakdown, theBigBoy } from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
-import { allGuesses, keyboardStateStart } from './Wordle.utils'
-
-const correctWords = ['HOUSE', 'GHOUL', 'EPOCH', 'BREAD', 'GROUT']
+import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
+import TimedDiv from '../../components/timed-div/TimedDiv'
 
 const chosenWord = correctWords[Math.floor(Math.random() * correctWords.length)]
 
@@ -21,6 +20,7 @@ const Wordle = () => {
   const [guesses, setGuesses] = useState(allGuesses)
   const [keyboardState, setKeyboardState] = useState(keyboardStateStart)
   const [showModal, setShowModal] = useState(false)
+  const [notAWord, setNotAWord] = useState(false)
 
   // Handle submit
   const submitHandler = useCallback(async () => {
@@ -35,6 +35,7 @@ const Wordle = () => {
     await dictionaryAPI(guessWord).then((res) => {
       if (res.title === 'No Definitions Found') {
         isValidWord = false
+        setNotAWord(true)
       } else {
         isValidWord = true
       }
@@ -142,6 +143,7 @@ const Wordle = () => {
   return (
     <div className={classes.board}>
       {/* <h1 className={classes.title}>Wordle</h1> */}
+      <TimedDiv state={notAWord} setState={setNotAWord} text="Not a word!" />
       <WordleBlock guesses={guesses} />
       <Keyboard
         keyboardState={keyboardState}
