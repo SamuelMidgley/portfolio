@@ -254,6 +254,12 @@ a {
   margin-top: 50px;
 }
 
+@media (max-width: 600px) {
+  .cool_thing {
+    margin-top: 100px;
+  }
+}
+
 .content {
   width: 400px;
 }
