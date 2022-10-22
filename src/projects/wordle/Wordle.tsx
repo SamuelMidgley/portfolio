@@ -1,199 +1,21 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import WordleBlock from './Components/WordleBlock'
 import Keyboard from './Components/Keyboard'
-import { Guess, LetterState } from './wordle.types'
 import classes from './Wordle.module.css'
 import { correctWordBreakdown, theBigBoy } from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
+import { allGuesses, keyboardStateStart } from './Wordle.utils'
 
-const allGuesses: Guess[] = [
-  {
-    id: 0,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-  {
-    id: 1,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-  {
-    id: 2,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-  {
-    id: 3,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-  {
-    id: 4,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-  {
-    id: 5,
-    guess: [
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-      { letter: '', state: '' },
-    ],
-    validWord: true,
-    submitted: false,
-  },
-]
+const correctWords = ['HOUSE', 'GHOUL', 'EPOCH', 'BREAD', 'GROUT']
 
-const keyboardStateStart: LetterState[] = [
-  {
-    letter: 'Q',
-    state: 'Unknown',
-  },
-  {
-    letter: 'W',
-    state: 'Unknown',
-  },
-  {
-    letter: 'E',
-    state: 'Unknown',
-  },
-  {
-    letter: 'R',
-    state: 'Unknown',
-  },
-  {
-    letter: 'T',
-    state: 'Unknown',
-  },
-  {
-    letter: 'Y',
-    state: 'Unknown',
-  },
-  {
-    letter: 'U',
-    state: 'Unknown',
-  },
-  {
-    letter: 'I',
-    state: 'Unknown',
-  },
-  {
-    letter: 'O',
-    state: 'Unknown',
-  },
-  {
-    letter: 'P',
-    state: 'Unknown',
-  },
-  {
-    letter: 'A',
-    state: 'Unknown',
-  },
-  {
-    letter: 'S',
-    state: 'Unknown',
-  },
-  {
-    letter: 'D',
-    state: 'Unknown',
-  },
-  {
-    letter: 'F',
-    state: 'Unknown',
-  },
-  {
-    letter: 'G',
-    state: 'Unknown',
-  },
-  {
-    letter: 'H',
-    state: 'Unknown',
-  },
-  {
-    letter: 'J',
-    state: 'Unknown',
-  },
-  {
-    letter: 'K',
-    state: 'Unknown',
-  },
-  {
-    letter: 'L',
-    state: 'Unknown',
-  },
-  {
-    letter: 'Z',
-    state: 'Unknown',
-  },
-  {
-    letter: 'X',
-    state: 'Unknown',
-  },
-  {
-    letter: 'C',
-    state: 'Unknown',
-  },
-  {
-    letter: 'V',
-    state: 'Unknown',
-  },
-  {
-    letter: 'B',
-    state: 'Unknown',
-  },
-  {
-    letter: 'N',
-    state: 'Unknown',
-  },
-  {
-    letter: 'M',
-    state: 'Unknown',
-  },
-]
+const chosenWord = correctWords[Math.floor(Math.random() * correctWords.length)]
 
 const Wordle = () => {
-  // Process correct word
-  const correctWord = correctWordBreakdown('GHOUL')
-
   // State management
+  const [correctWord, setCorrectWord] = useState(
+    correctWordBreakdown(chosenWord),
+  )
   const [numAttempts, setNumAttempts] = useState(0)
   const [letterIdx, setLetterIdx] = useState(0)
   const [guesses, setGuesses] = useState(allGuesses)
@@ -298,7 +120,16 @@ const Wordle = () => {
   )
 
   const modalClickHandler = () => {
-    setShowModal((prevState) => !prevState)
+    // VERY VERY HACKY but not sure why its not working
+    window.location.reload()
+    // setGuesses(allGuesses)
+    // const newWord =
+    //   correctWords[Math.floor(Math.random() * correctWords.length)]
+    // setCorrectWord(correctWordBreakdown(newWord))
+    // setNumAttempts(0)
+    // setLetterIdx(0)
+    // setKeyboardState(keyboardStateStart)
+    // setShowModal(false)
   }
 
   useEffect(() => {

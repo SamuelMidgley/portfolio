@@ -47,6 +47,7 @@ interface CssGameProps {
 
 const CssGame = (props: CssGameProps) => {
   const [numCorrect, setNumCorrect] = useState(0)
+  const [isWrong, setIsWrong] = useState(false)
   const [correctColorIdx, setCorrectColorIdx] = useState(randInt(2))
   const [colors, setColors] = useState([
     generateRandomRGB(),
@@ -67,8 +68,10 @@ const CssGame = (props: CssGameProps) => {
     }
 
     if (isCorrect) {
+      setIsWrong(false)
       setNumCorrect((prevNumCorrect) => prevNumCorrect + 1)
     } else {
+      setIsWrong(true)
       setNumCorrect(0)
     }
 
@@ -116,6 +119,7 @@ const CssGame = (props: CssGameProps) => {
       {numCorrect > 0 && (
         <div className="cssgame-message">{`${numCorrect} in a row!`}</div>
       )}
+      {isWrong && <div className="cssgame-message">{`Unlucky, try again`}</div>}
     </div>
   )
 }

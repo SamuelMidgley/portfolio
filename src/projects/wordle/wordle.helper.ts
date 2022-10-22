@@ -66,7 +66,7 @@ export function theBigBoy(
 
       // Update the state of the keyboard
       keyboardState = keyboardState.map((letterState) => {
-        return letterState.letter === guessLetter.toUpperCase()
+        return letterState.letter.toLowerCase() === guessLetter
           ? { ...letterState, state: 'correct' }
           : { ...letterState }
       })

@@ -1,20 +1,23 @@
-import React from "react";
-import classes from "./Keyboard.module.css";
-import { KeyboardProps } from "../wordle.types";
+import React from 'react'
+import classes from './Keyboard.module.css'
+import { KeyboardProps } from '../wordle.types'
+import './Keyboard.css'
 
 const Keyboard = (props: KeyboardProps) => {
-  const row1 = props.keyboardState.slice(0, 10);
-  const row2 = props.keyboardState.slice(10, 19);
-  const row3 = props.keyboardState.slice(19, 26);
+  const classNames = require('classnames')
+
+  const row1 = props.keyboardState.slice(0, 10)
+  const row2 = props.keyboardState.slice(10, 19)
+  const row3 = props.keyboardState.slice(19, 26)
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    props.handleKeyPress((event.target as HTMLButtonElement).value);
-  };
+    event.preventDefault()
+    props.handleKeyPress((event.target as HTMLButtonElement).value)
+  }
 
   const submitHandler = () => {
-    props.handleSubmit();
-  };
+    props.handleSubmit()
+  }
 
   return (
     <div className={classes.keyboard}>
@@ -23,7 +26,7 @@ const Keyboard = (props: KeyboardProps) => {
           <button
             key={letterState.letter}
             onClick={clickHandler}
-            className={classes.keyboard_key}
+            className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
           >
             {letterState.letter}
@@ -35,7 +38,7 @@ const Keyboard = (props: KeyboardProps) => {
           <button
             key={letterState.letter}
             onClick={clickHandler}
-            className={classes.keyboard_key}
+            className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
           >
             {letterState.letter}
@@ -54,7 +57,7 @@ const Keyboard = (props: KeyboardProps) => {
           <button
             key={letterState.letter}
             onClick={clickHandler}
-            className={classes.keyboard_key}
+            className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
           >
             {letterState.letter}
@@ -86,7 +89,7 @@ const Keyboard = (props: KeyboardProps) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Keyboard;
+export default Keyboard

@@ -1,0 +1,11 @@
+.correct {
+  background-color: green;
+}
+
+.nearly {
+  background-color: rgb(147, 147, 14);
+}
+
+.incorrect {
+  background-color: rgb(70, 70, 70);
+}
