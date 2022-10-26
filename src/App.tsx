@@ -10,7 +10,7 @@ import Projects from './projects/Projects'
 import Home from './Home'
 import Wordle from './projects/wordle/Wordle'
 import NavBar from './components/navbar/NavBar'
-import Flocking from './games/flocking/Flocking'
+// import Flocking from './games/flocking/Flocking'
 import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
 import SolarSystem from './projects/solarsystem/SolarSystem'
@@ -33,14 +33,10 @@ export default function App() {
 
           <Route path="/portfolio/games" element={<Games />} />
           <Route
-            path="/portfolio/games/cssgame-cheat"
-            element={<CssGame easy={true} />}
-          />
-          <Route
             path="/portfolio/games/cssgame"
             element={<CssGame easy={false} />}
           />
-          <Route path="/portfolio/games/flocking" element={<Flocking />} />
+          {/* <Route path="/portfolio/games/flocking" element={<Flocking />} /> */}
           <Route
             path="/portfolio/games/solarsystem"
             element={<SolarSystem />}

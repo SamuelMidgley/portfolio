@@ -4,12 +4,13 @@ import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 
 const NavBar = () => {
+  const classNames = require('classnames')
   const [showMenu, setShowMenu] = useState(false)
 
   return (
     <>
       <div
-        className="nav-menu"
+        className={classNames('nav-menu', showMenu ? 'active' : '')}
         onClick={() => setShowMenu((prevState) => !prevState)}
       >
         {showMenu ? (

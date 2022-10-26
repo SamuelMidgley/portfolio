@@ -108,7 +108,7 @@ const CssGame = (props: CssGameProps) => {
           return (
             <button
               key={randInt(10000)}
-              className="cssgame-option"
+              className="cssgame-option button"
               onClick={onClickHandler}
             >
               {color}

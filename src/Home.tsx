@@ -1,3 +1,5 @@
+import './Home.css'
+
 export default function Home() {
   return (
     <div className="cool_thing">
@@ -8,5 +10,5 @@ export default function Home() {
         </a>
       </div>
     </div>
-  );
+  )
 }

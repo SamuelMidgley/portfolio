@@ -1,16 +1,10 @@
-@media print {
-  html,
-  body {
-    /* Hide the whole page */
-    display: none;
-  }
-}
 .cssgame-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
   color: wheat;
+  justify-content: space-between;
+  padding-top: 30px;
 }
 
 .cssgame-color_block {
@@ -23,25 +17,24 @@
 }
 
 .cssgame-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3rem;
   padding: 2em;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .cssgame-option {
-  background-color: darkgray;
+  background-color: aliceblue;
+  border: 0;
   padding: 10px;
   border-radius: 2px;
   cursor: pointer;
 }
 
-.cssgame-messages {
-}
-
 @media (max-width: 600px) {
-  .cssgame-options {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 1em;
+  .cssgame-container {
+    padding-top: 100px;
   }
 }

@@ -1,6 +1,6 @@
 .games-menu {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 100px;

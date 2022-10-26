@@ -75,6 +75,7 @@ ul .nav-link {
     top: 0;
     padding: 5em 2em 2em;
     background: hsl(210, 18%, 15%);
+    box-sizing: content-box;
   }
 
   .nav-hidden {
@@ -109,5 +110,9 @@ ul .nav-link {
     fill: white;
     cursor: pointer;
     display: block;
+  }
+
+  .nav-menu.active {
+    transform: translate(130px, 0);
   }
 }
