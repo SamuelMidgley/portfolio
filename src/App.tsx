@@ -18,9 +18,9 @@ import SolarSystem from './projects/solarsystem/SolarSystem'
 export default function App() {
   return (
     <Router>
-      <div>
-        <NavBar />
+      <NavBar />
 
+      <div className="all-content">
         <Routes>
           <Route
             path="/portfolio"
@@ -36,7 +36,6 @@ export default function App() {
             path="/portfolio/games/cssgame"
             element={<CssGame easy={false} />}
           />
-          {/* <Route path="/portfolio/games/flocking" element={<Flocking />} /> */}
           <Route
             path="/portfolio/games/solarsystem"
             element={<SolarSystem />}

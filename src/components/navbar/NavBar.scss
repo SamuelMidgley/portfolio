@@ -1,0 +1,177 @@
+/* https://www.awwwards.com/inspiration/shapefarm-overlay-menu-circle-animation */
+body:has(.nav-menu.active) {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.nav-menu {
+  z-index: 5;
+  fill: white;
+  position: relative;
+
+  svg {
+    z-index: 10;
+  }
+
+  .thingy {
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      //background: radial-gradient(circle, hsl(210, 18%, 15%) 40%, #23a6d5 40%);
+    }
+
+    &.active::before {
+      background-color: #23a6d5;
+    }
+
+    &.active::after {
+      animation-delay: 0.5s;
+      background-color: hsl(210, 18%, 15%);
+    }
+
+    // &.inactive::before {
+    //   background-color: hsl(210, 18%, 15%);
+    // }
+
+    &.inactive::after {
+      animation-delay: 0.5s;
+      background-color: #23a6d5;
+    }
+
+    &.active::before,
+    &.active::after {
+      animation-name: circle-thingy;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+
+    &.inactive::before {
+      animation: circle-thingy-reverse 2s ease-in 0s 1 forwards;
+    }
+
+    svg {
+      cursor: pointer;
+      z-index: 5;
+    }
+  }
+}
+
+nav {
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 5em 2em 2em;
+  box-sizing: content-box;
+
+  &.nav-hidden {
+    display: none;
+  }
+
+  ul {
+    height: 100vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-start;
+    font-size: 2rem;
+    font-weight: bold;
+    color: whitesmoke;
+    padding: 0;
+
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &::before {
+        top: -3px;
+        transform-origin: left;
+      }
+
+      &::after {
+        bottom: -3px;
+        transform-origin: right;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        /* background-color: hsl(142, 90%, 61%); */
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+        transform: scaleX(0);
+        transition: transform 0.25s;
+      }
+
+      &:hover::before,
+      &:hover::after {
+        transform: scaleX(1);
+      }
+
+      &.active-nav::before,
+      &.active-nav::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes circle-thingy {
+  0% {
+    height: 50px;
+    width: 50px;
+    left: -25px;
+  }
+  100% {
+    height: 400vw;
+    width: 400vw;
+    left: -200vw;
+  }
+}
+
+@keyframes circle-thingy-reverse {
+  0% {
+    height: 400vw;
+    width: 400vw;
+    left: -200vw;
+  }
+  100% {
+    height: 50px;
+    width: 50px;
+    left: -25px;
+  }
+}
