@@ -10,6 +10,7 @@ const MenuIcon = (props: MenuIconProps) => {
   return (
     <div
       className={classNames('burger-icon', showMenu ? 'cross' : '')}
+      title="menu-icon"
       onClick={() => setShowMenu((prevState: any) => !prevState)}
     >
       {showMenu ? (
