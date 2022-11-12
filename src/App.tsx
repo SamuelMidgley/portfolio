@@ -7,10 +7,9 @@ import {
   Navigate,
 } from 'react-router-dom'
 import Projects from './projects/Projects'
-import Home from './Home'
+import Home from './home/Home'
 import Wordle from './projects/wordle/Wordle'
 import NavBar from './components/navbar/NavBar'
-// import Flocking from './games/flocking/Flocking'
 import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
 import SolarSystem from './projects/solarsystem/SolarSystem'
@@ -18,7 +17,7 @@ import SolarSystem from './projects/solarsystem/SolarSystem'
 export default function App() {
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <div className="all-content">
         <Routes>

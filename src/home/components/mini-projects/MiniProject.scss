@@ -1,0 +1,42 @@
+.mini-projects {
+  .header-thingy {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    h2 {
+      text-align: center;
+    }
+
+    button {
+    }
+  }
+
+  .showcase {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  .view-more {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    button {
+      margin-top: 1rem;
+      color: aliceblue;
+      padding: 10px;
+      background-color: transparent;
+      font-size: 18px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  }
+
+  margin-bottom: 2rem !important;
+}

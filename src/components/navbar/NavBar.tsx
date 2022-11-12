@@ -1,7 +1,7 @@
 import './NavBar.scss'
 
 import { useState } from 'react'
-import MenuIcon from './MenuIcon'
+import MenuIcon from './components/MenuIcon'
 import NavMenuItem from './components/NavMenuItem'
 
 const NavBar = () => {

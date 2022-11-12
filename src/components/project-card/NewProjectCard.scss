@@ -1,0 +1,30 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid aliceblue;
+  // border-radius: 0.5rem;
+  // background-color: darkslategray;
+  max-width: 25ch;
+
+  .image {
+    height: 175px;
+    background-size: cover;
+    width: 100%;
+    border-bottom: 1px solid aliceblue;
+    // border-top-left-radius: 0.5rem;
+    // border-top-right-radius: 0.5rem;
+  }
+
+  .text-content {
+    padding: 10px;
+
+    .title {
+      font-weight: bold;
+      font-size: large;
+    }
+
+    .summary {
+      font-size: small;
+    }
+  }
+}
