@@ -9,3 +9,5 @@ Option menu
 - Change text color
 - Change background color
 - Change border radii
+- Hang man
+

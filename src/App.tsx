@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 
 import {
   BrowserRouter as Router,
@@ -13,11 +13,14 @@ import NavBar from './components/navbar/NavBar'
 import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
 import SolarSystem from './projects/solarsystem/SolarSystem'
+import TopBar from './components/top-bar/TopBar'
+import Theme from './components/theme/Theme'
 
 export default function App() {
   return (
     <Router>
       {/* <NavBar /> */}
+      <Theme />
 
       <div className="all-content">
         <Routes>

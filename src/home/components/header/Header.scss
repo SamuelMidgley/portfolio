@@ -23,6 +23,7 @@
     width: 400px;
     transition: transform 1s;
     transform-style: preserve-3d;
+    border-radius: var(--border-radius);
   }
 
   .content::before {
@@ -32,6 +33,7 @@
     inset: 0;
     border: 3px solid white;
     transform: translateZ(2rem);
+    border-radius: var(--border-radius);
   }
 
   .content::after {
@@ -41,6 +43,7 @@
     inset: 0;
     background: rgba(229, 229, 229, 0.25);
     transform: translateZ(-2rem);
+    border-radius: var(--border-radius);
   }
 
   .content:hover {

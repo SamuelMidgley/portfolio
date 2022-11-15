@@ -1,18 +1,17 @@
 .project-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid aliceblue;
-  // border-radius: 0.5rem;
-  // background-color: darkslategray;
+  border: 1px solid var(--theme-color);
+  border-radius: var(--border-radius);
   max-width: 25ch;
 
   .image {
     height: 175px;
     background-size: cover;
     width: 100%;
-    border-bottom: 1px solid aliceblue;
-    // border-top-left-radius: 0.5rem;
-    // border-top-right-radius: 0.5rem;
+    border-bottom: 1px solid var(--theme-color);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
   }
 
   .text-content {

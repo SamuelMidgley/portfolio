@@ -8,7 +8,7 @@
     grid-template-columns: 1fr 10fr;
     width: 100%;
     padding: 10px;
-    border: 1px solid aliceblue;
+    border: 1px solid var(--theme-color);
 
     .line {
       width: 100%;
@@ -30,16 +30,16 @@
           margin-right: 10px;
 
           .time {
-            border: 1px solid aliceblue;
+            border: 1px solid var(--theme-color);
             padding: 5px;
           }
         }
 
         .card-info {
-          border: 1px solid aliceblue;
+          border: 1px solid var(--theme-color);
           padding: 10px;
           .title {
-            border-bottom: 1px solid aliceblue;
+            border-bottom: 1px solid var(--theme-color);
           }
 
           .summary {

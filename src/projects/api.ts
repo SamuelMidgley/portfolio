@@ -65,6 +65,6 @@ export const projects: ProjectCardProps[] = [
       'A simple CRUD application to store riddles using ASP.NET application with migrationsp',
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
-    tags: ['C#', '.NETCORE'],
+    tags: ['C#', '.NET CORE'],
   },
 ]

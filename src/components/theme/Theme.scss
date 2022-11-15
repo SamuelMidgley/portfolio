@@ -1,0 +1,17 @@
+.theme {
+
+    .theme-icon {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        height: 4rem;
+        width: 4rem;
+        padding: 1rem;
+        fill: var(--font-color);
+        filter: blur(0px) !important;
+        cursor: pointer;
+    }
+    .theme-modal {
+
+    }
+}

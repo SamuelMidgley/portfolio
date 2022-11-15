@@ -2,9 +2,9 @@ import './Bio.scss'
 
 export default function Bio() {
   return (
-    <section className="Bio">
+    <section className="bio">
       <span>
-        Hey there, I'm a full-stack software engineer at Interact software
+        Full-stack software engineer at Interact
       </span>
     </section>
   )

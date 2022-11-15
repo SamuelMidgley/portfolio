@@ -1,0 +1,9 @@
+.themed-button {
+    color: var(--font-color);
+    padding: 10px;
+    background-color: transparent;
+    font-size: 18px;
+    border: 1px solid var(--theme-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
