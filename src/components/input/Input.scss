@@ -1,0 +1,16 @@
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--font-color);
+  opacity: 1; /* Firefox */
+}
+
+input:focus-within {
+    outline: 0px;
+}
+
+input {
+  background-color: var(--background-color);
+  border: 1px solid var(--theme-color);
+  color: var(--font-color);
+  padding: 5px;
+}

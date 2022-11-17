@@ -7,7 +7,7 @@ export default function Theme() {
   const [showModal, setShowModal] = useState(false)
 
   function settingsClickHandler() {
-    const rootElement = document.getElementById('root')
+    const rootElement = document.getElementById('content')
     if (rootElement === null) return
 
     if (showModal) {

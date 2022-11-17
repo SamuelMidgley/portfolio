@@ -19,10 +19,10 @@ import Theme from './components/theme/Theme'
 export default function App() {
   return (
     <Router>
-      {/* <NavBar /> */}
+      <NavBar />
       <Theme />
 
-      <div className="all-content">
+      <div id="content">
         <Routes>
           <Route
             path="/portfolio"
