@@ -19,7 +19,7 @@ import Theme from './components/theme/Theme'
 export default function App() {
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <Theme />
 
       <div id="content">

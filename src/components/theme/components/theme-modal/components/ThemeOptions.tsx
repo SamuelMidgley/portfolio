@@ -5,6 +5,7 @@ import ModalOptions from './ModalOptions'
 import './ThemeOptions.scss'
 
 export default function ThemeOptions(props: any) {
+  // TODO : Use typescript
   const [showCustom, setShowCustom] = useState(false)
   const [themeValue, setThemeValue] = useState('')
 
@@ -13,15 +14,13 @@ export default function ThemeOptions(props: any) {
   }
 
   function saveCustomOption() {
-    console.log("1")
+    console.log('1')
     console.log(props.name)
     if (props.name === 'font') {
       setRootStyle('--font-color', themeValue)
-    }
-    else if (props.name === 'theme') {
+    } else if (props.name === 'theme') {
       setRootStyle('--theme-color', themeValue)
-    }
-    else if (props.name === 'background') {
+    } else if (props.name === 'background') {
       setRootStyle('--background-color', themeValue)
     }
   }
@@ -30,13 +29,30 @@ export default function ThemeOptions(props: any) {
     setThemeValue(e.target.value)
   }
 
+  function lightDarkClickHandler(e: any) {
+    console.log(e)
+    const themeValue =
+      e.target.innerHTML === 'Light' ? 'aliceblue' : 'hsl(207, 19%, 9%)'
+    if (props.name === 'font') {
+      setRootStyle('--font-color', themeValue)
+    } else if (props.name === 'theme') {
+      setRootStyle('--theme-color', themeValue)
+    } else if (props.name === 'background') {
+      setRootStyle('--background-color', themeValue)
+    }
+  }
+
   return (
     <ModalOptions name={props.name} option={props.option}>
-      <Button text="Dark" />
-      <Button text="Light" />
+      <Button text="Dark" onClickHandler={lightDarkClickHandler} />
+      <Button text="Light" onClickHandler={lightDarkClickHandler} />
       {showCustom ? (
-        <div className='custom-option'>
-          <input value={themeValue} placeholder="Custom..." onChange={onChangeHandler}/>
+        <div className="custom-option">
+          <input
+            value={themeValue}
+            placeholder="Custom..."
+            onChange={onChangeHandler}
+          />
           <Button onClickHandler={saveCustomOption} text="Save" />
         </div>
       ) : (

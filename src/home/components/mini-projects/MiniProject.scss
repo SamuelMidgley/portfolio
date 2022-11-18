@@ -10,6 +10,14 @@
     h2 {
       text-align: center;
     }
+
+    .random-svg {
+      display: flex;
+      svg {
+        fill: var(--font-color);
+        cursor: pointer;
+      }
+    }
   }
 
   .showcase {

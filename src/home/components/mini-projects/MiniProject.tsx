@@ -4,6 +4,7 @@ import NewProjectCard from '../../../components/project-card/NewProjectCard'
 import { randInt } from '../../../games/cssgame/cssgame.helper'
 import { projects } from '../../../projects/api'
 import './MiniProject.scss'
+import RandomSvg from './RandomSvg'
 
 export default function MiniProject() {
   const [projectIdx, setProjectIdx] = useState([2, 4])
@@ -33,7 +34,8 @@ export default function MiniProject() {
     <section className="mini-projects">
       <div className="header-thingy">
         <h2>Projects</h2>
-        <Button onClickHandler={randomHandler} text='Rando' />
+        <RandomSvg onClickHandler={randomHandler} />
+        {/* <Button onClickHandler={randomHandler} text="Rando" /> */}
       </div>
       <ul className="showcase">
         {projectIdx.map((idx) => (
@@ -41,7 +43,7 @@ export default function MiniProject() {
         ))}
       </ul>
       <div className="view-more">
-        <Button text='View more'/>
+        <Button text="View more" />
       </div>
     </section>
   )

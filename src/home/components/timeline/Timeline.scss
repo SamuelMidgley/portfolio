@@ -1,21 +1,21 @@
 .timeline {
-  width: 70%;
   text-align: center;
 
   .timeline-block {
-    display: grid;
+    display: flex;
     justify-items: center;
-    grid-template-columns: 1fr 10fr;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid var(--theme-color);
+    border-radius: var(--border-radius);
 
     .line {
-      width: 100%;
-      background-color: pink;
+      width: 2px;
+      background-color: var(--theme-color);
     }
 
     .info {
+      flex: 1;
       display: flex;
       flex-direction: column;
 
@@ -27,16 +27,30 @@
 
         .time-part {
           padding: 10px;
-          margin-right: 10px;
+          margin-right: 5px;
 
           .time {
+            position: relative;
             border: 1px solid var(--theme-color);
+            border-radius: var(--border-radius);
             padding: 5px;
+
+            &::before {
+              position: absolute;
+              content: '';
+              width: 10px;
+              height: 10px;
+              left: -17px;
+              bottom: 14px;
+              border-radius: 50%;
+              background-color: var(--theme-color);
+            }
           }
         }
 
         .card-info {
           border: 1px solid var(--theme-color);
+          border-radius: var(--border-radius);
           padding: 10px;
           .title {
             border-bottom: 1px solid var(--theme-color);

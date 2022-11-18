@@ -7,20 +7,16 @@ export default function Theme() {
   const [showModal, setShowModal] = useState(false)
 
   function settingsClickHandler() {
-    const rootElement = document.getElementById('content')
-    if (rootElement === null) return
+    const contentElement = document.getElementById('content')
+    const rootElement = document.querySelector('body')
+    if (contentElement === null || rootElement === null) return
 
     if (showModal) {
-        rootElement.style.filter = ''
-        // if (rootElement.parentElement) {
-        //     rootElement.parentElement.style.overflow = 'hidden auto'
-        // }
-    }
-    else {
-        rootElement.style.filter = 'blur(5px)'
-        // if (rootElement.parentElement) {
-        //     rootElement.parentElement.style.overflow = 'hidden'
-        // }
+      contentElement.style.filter = ''
+      rootElement.style.overflow = 'hidden auto'
+    } else {
+      contentElement.style.filter = 'blur(5px)'
+      rootElement.style.overflow = 'hidden'
     }
 
     setShowModal((prevState) => !prevState)
