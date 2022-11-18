@@ -1,0 +1,13 @@
+.skills {
+  text-align: center;
+
+  .skill-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    font-size: xx-large;
+  }
+
+  margin-bottom: 2rem;
+}

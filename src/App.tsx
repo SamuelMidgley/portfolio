@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 
 import {
   BrowserRouter as Router,
@@ -7,20 +7,22 @@ import {
   Navigate,
 } from 'react-router-dom'
 import Projects from './projects/Projects'
-import Home from './Home'
+import Home from './home/Home'
 import Wordle from './projects/wordle/Wordle'
 import NavBar from './components/navbar/NavBar'
-// import Flocking from './games/flocking/Flocking'
 import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
 import SolarSystem from './projects/solarsystem/SolarSystem'
+import TopBar from './components/top-bar/TopBar'
+import Theme from './components/theme/Theme'
 
 export default function App() {
   return (
     <Router>
-      <div>
-        <NavBar />
+      {/* <NavBar /> */}
+      <Theme />
 
+      <div id="content">
         <Routes>
           <Route
             path="/portfolio"
@@ -36,7 +38,6 @@ export default function App() {
             path="/portfolio/games/cssgame"
             element={<CssGame easy={false} />}
           />
-          {/* <Route path="/portfolio/games/flocking" element={<Flocking />} /> */}
           <Route
             path="/portfolio/games/solarsystem"
             element={<SolarSystem />}

@@ -1,0 +1,11 @@
+.tags {
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-top: 0;
+
+  button {
+    font-size: 14px;
+  }
+}

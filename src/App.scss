@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-  --clr-neutral-900: hsl(207, 19%, 9%);
-  --clr-neutral-100: hsl(0, 0%, 100%);
-  --clr-accent-900: hsl(142, 90%, 61%);
+  --background-color: hsl(207, 19%, 9%);
+  --font-color: aliceblue;
+  --theme-color: aliceblue;
+  --border-radius: 0;
 }
 
 *,
@@ -17,10 +18,11 @@
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  background: var(--clr-neutral-900);
+  background: var(--background-color);
 }
 
 #modal {
+  z-index: 100;
   position: fixed;
   left: 50%;
   top: 50%;

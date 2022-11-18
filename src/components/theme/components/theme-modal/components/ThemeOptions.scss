@@ -1,0 +1,25 @@
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--font-color);
+    opacity: 1; /* Firefox */
+}
+
+
+.custom-option {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 0px !important;
+
+    input {
+        width: 12ch;
+        background-color: var(--background-color);
+        border: 1px solid var(--theme-color);
+        color: var(--font-color);
+        padding: 5px;
+        
+        &:focus-within {
+            outline: 0px;
+        }
+    }
+}

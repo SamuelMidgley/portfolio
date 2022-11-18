@@ -1,70 +1,46 @@
-import './NavBar.css'
+import './NavBar.scss'
 
-import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import MenuIcon from './components/MenuIcon'
+import NavMenuItem from './components/NavMenuItem'
 
 const NavBar = () => {
   const classNames = require('classnames')
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <>
-      <div
-        className={classNames('nav-menu', showMenu ? 'active' : '')}
-        onClick={() => setShowMenu((prevState) => !prevState)}
-      >
-        {showMenu ? (
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-            <path d="M38 12.83 35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z" />
-            <path fill="none" d="M0 0h48v48H0z" />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M0 0h24v24H0V0z" />
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-          </svg>
-        )}
+    <div className={classNames('nav-menu', showMenu ? 'active' : 'inactive')}>
+      <div className={classNames(showMenu ? 'active' : 'inactive')}>
+        <div className="animation-container">
+          <div
+            className={classNames('thingy', showMenu ? 'active' : 'inactive')}
+          />
+        </div>
+        <MenuIcon showMenu={showMenu} setShowMenu={setShowMenu} />
       </div>
-      <nav className={!showMenu ? 'nav-hidden' : ''}>
+      <nav className={classNames(!showMenu ? 'nav-hidden' : '', 'navigation')}>
         <ul>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'active-nav nav-link' : 'nav-link'
-              }
-              to="/portfolio/home"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'active-nav nav-link' : 'nav-link'
-              }
-              to="/portfolio/projects"
-            >
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'active-nav nav-link' : 'nav-link'
-              }
-              to="/portfolio/games"
-            >
-              Games
-            </NavLink>
-          </li>
+          <NavMenuItem
+            textContent="home"
+            path="/portfolio/home"
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+          />
+          <NavMenuItem
+            textContent="projects"
+            path="/portfolio/projects"
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+          />
+          <NavMenuItem
+            textContent="games"
+            path="/portfolio/games"
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+          />
         </ul>
       </nav>
-    </>
+    </div>
   )
 }
 

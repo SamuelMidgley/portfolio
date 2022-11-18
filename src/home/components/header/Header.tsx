@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './Home.css'
+import './Header.scss'
 
-export default function Home() {
+export default function Header() {
   const [isFunky, setIsFunky] = useState(false)
 
   const onClickHandler = () => {
@@ -9,16 +9,15 @@ export default function Home() {
   }
 
   return (
-    <div className="cool_thing">
+    <header className="cool_thing">
       <div
         className={`content ${isFunky ? 'funky' : ''}`}
         onClick={onClickHandler}
       >
-        <p className="subtitle">Hi, I'm Sam, I can follow a tutorial</p>
         <a href="https://github.com/SamuelMidgley">
           <h3 className="title">@SamMidgley</h3>
         </a>
       </div>
-    </div>
+    </header>
   )
 }

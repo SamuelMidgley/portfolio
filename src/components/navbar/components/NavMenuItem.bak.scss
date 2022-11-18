@@ -1,0 +1,54 @@
+.nav-item-container {
+  --transform-thingy: 100% 0% 100%;
+  position: relative;
+  min-height: 3rem;
+
+  .top-text,
+  .bottom-text {
+    position: absolute;
+  }
+
+  .top-text {
+    color: white;
+    transform: rotateX(90deg);
+    transform-origin: top;
+  }
+
+  &:hover .top-text {
+    animation: top-rotate-90;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  .bottom-text {
+    color: #23a6d5;
+  }
+
+  &:hover .bottom-text {
+    animation: bottom-rotate-90;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes top-rotate-90 {
+  0% {
+    transform: rotateX(90deg);
+    transform-origin: var(--transform-thingy);
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: var(--transform-thingy);
+  }
+}
+
+@keyframes bottom-rotate-90 {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: var(--transform-thingy);
+  }
+  100% {
+    transform: rotateX(90deg);
+    transform-origin: var(--transform-thingy);
+  }
+}
