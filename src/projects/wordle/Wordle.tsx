@@ -13,7 +13,7 @@ const chosenWord = correctWords[Math.floor(Math.random() * correctWords.length)]
 const Wordle = () => {
   // State management
   const [correctWord, setCorrectWord] = useState(
-    correctWordBreakdown(chosenWord),
+    correctWordBreakdown(chosenWord)
   )
   const [numAttempts, setNumAttempts] = useState(0)
   const [letterIdx, setLetterIdx] = useState(0)
@@ -46,16 +46,16 @@ const Wordle = () => {
         prevGuesses.map((guessObject) =>
           guessObject.id === numAttempts
             ? { ...guessObject, validWord: false }
-            : { ...guessObject },
-        ),
+            : { ...guessObject }
+        )
       )
       return
     }
 
     const array = theBigBoy(currentGuess, keyboardState, correctWord)
 
-    let processedKeyboardState = array.keyboardState
-    let processedGuessObject = array.guessObject
+    const processedKeyboardState = array.keyboardState
+    const processedGuessObject = array.guessObject
     processedGuessObject.validWord = true
 
     if (processedGuessObject.correct === true) {
@@ -68,8 +68,8 @@ const Wordle = () => {
       prevGuesses.map((guessObject) =>
         guessObject.id === numAttempts
           ? { ...processedGuessObject }
-          : { ...guessObject },
-      ),
+          : { ...guessObject }
+      )
     )
 
     setLetterIdx(0)
@@ -80,8 +80,8 @@ const Wordle = () => {
   const keyboardHandler = useCallback(
     (key: string) => {
       if (letterIdx >= 0 && (letterIdx < 5 || key === 'Delete')) {
-        let currentGuess = guesses.filter(
-          (guess) => guess.id === numAttempts,
+        const currentGuess = guesses.filter(
+          (guess) => guess.id === numAttempts
         )[0]
         if (key === 'Delete') {
           if (letterIdx > 0) {
@@ -99,12 +99,12 @@ const Wordle = () => {
           guesses.map((guessObject) =>
             guessObject.id === numAttempts
               ? { ...currentGuess }
-              : { ...guessObject },
-          ),
+              : { ...guessObject }
+          )
         )
       }
     },
-    [guesses, letterIdx, numAttempts],
+    [guesses, letterIdx, numAttempts]
   )
 
   const handleUserKeyPress = useCallback(
@@ -117,7 +117,7 @@ const Wordle = () => {
         keyboardHandler('Delete')
       }
     },
-    [keyboardHandler, submitHandler],
+    [keyboardHandler, submitHandler]
   )
 
   const modalClickHandler = () => {

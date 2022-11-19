@@ -8,6 +8,7 @@ interface CanvasProps {
 }
 
 const Canvas = (props: CanvasProps) => {
+  const { hover, backgroundColor } = props
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -15,28 +16,28 @@ const Canvas = (props: CanvasProps) => {
       const canvas = canvasRef.current
       const context = canvas.getContext('2d')
       if (context != null) {
-        //Our first draw
-        context.fillStyle = props.hover ? 'black' : props.backgroundColor
+        // Our first draw
+        context.fillStyle = hover ? 'black' : backgroundColor
         context.fillRect(0, 0, 200, 200)
 
-        if (props.hover) {
+        if (hover) {
           context.font = '18px Comic Sans MS'
           context.fillStyle = 'white'
           context.textAlign = 'center'
           context.fillText(
             "Hope you're not",
             canvas.width / 2,
-            canvas.height / 2.5,
+            canvas.height / 2.5
           )
           context.fillText(
             'using a colour picker',
             canvas.width / 2,
-            canvas.height / 1.5,
+            canvas.height / 1.5
           )
         }
       }
     }
-  }, [props])
+  }, [hover, backgroundColor])
 
   return <canvas height="200px" width="200px" ref={canvasRef} />
 }
@@ -46,6 +47,7 @@ interface CssGameProps {
 }
 
 const CssGame = (props: CssGameProps) => {
+  const { easy } = props
   const [numCorrect, setNumCorrect] = useState(0)
   const [isWrong, setIsWrong] = useState(false)
   const [correctColorIdx, setCorrectColorIdx] = useState(randInt(2))
@@ -88,11 +90,11 @@ const CssGame = (props: CssGameProps) => {
 
   return (
     <div className="cssgame-container">
-      {props.easy ? (
+      {easy ? (
         <div
           className="cssgame-color_block"
           style={{ backgroundColor: colors[correctColorIdx] }}
-        ></div>
+        />
       ) : (
         <div
           onMouseEnter={onMouseEnterHandler}
@@ -107,6 +109,7 @@ const CssGame = (props: CssGameProps) => {
         {colors.map((color) => {
           return (
             <button
+              type="button"
               key={randInt(10000)}
               className="cssgame-option button"
               onClick={onClickHandler}
@@ -119,7 +122,7 @@ const CssGame = (props: CssGameProps) => {
       {numCorrect > 0 && (
         <div className="cssgame-message">{`${numCorrect} in a row!`}</div>
       )}
-      {isWrong && <div className="cssgame-message">{`Unlucky, try again`}</div>}
+      {isWrong && <div className="cssgame-message">Unlucky, try again</div>}
     </div>
   )
 }

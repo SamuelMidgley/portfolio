@@ -1,20 +1,21 @@
-import { Link } from "react-router-dom";
-import { ProjectCardProps } from "./projects.types";
+import { Link } from 'react-router-dom'
+import { ProjectCardProps } from './projects.types'
 
 const ProjectCard = (props: ProjectCardProps) => {
+  const { backgroundImage, title, summary, isLocal, url } = props
   return (
-    <div className="card" style={{ backgroundImage: props.backgroundImage }}>
+    <div className="card" style={{ backgroundImage }}>
       <div className="card-content">
-        <h2 className="card-title">{props.title}</h2>
-        <p className="card-body">{props.summary}</p>
-        {props.isLocal ? (
-          <Link to={`/portfolio/${props.url}`}>
+        <h2 className="card-title">{title}</h2>
+        <p className="card-body">{summary}</p>
+        {isLocal ? (
+          <Link to={`/portfolio/${url}`}>
             <div className="button">Learn More</div>
           </Link>
         ) : (
           <a
             rel="noreferrer"
-            href={`https://github.com/SamuelMidgley/${props.url}`}
+            href={`https://github.com/SamuelMidgley/${url}`}
             target="_blank"
             className="button"
           >
@@ -23,7 +24,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

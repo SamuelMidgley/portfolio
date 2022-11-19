@@ -6,11 +6,16 @@ import ThemeOptions from './components/ThemeOptions'
 
 import './ThemeModal.scss'
 
-function Modal(props: any) {
+interface ModalProps {
+  onClick: () => void // not sure this is the best
+}
+
+function Modal(props: ModalProps) {
+  const { onClick } = props
   return (
     <div className="theme-modal">
       <div className="close">
-        <Button onClickHandler={props.onClick} text="x" />
+        <Button onClickHandler={onClick} text="x" />
       </div>
       <h1>Color Settings</h1>
       <LightDarkMode />
@@ -22,10 +27,7 @@ function Modal(props: any) {
   )
 }
 
-export default function ThemeModal(props: any) {
+export default function ThemeModal(props: ModalProps) {
   const modalNode = document.getElementById('modal') as HTMLElement
-  return ReactDOM.createPortal(
-    <Modal closeModal={props.closeModal} onClick={props.onClick} />,
-    modalNode,
-  )
+  return ReactDOM.createPortal(<Modal onClick={props.onClick} />, modalNode)
 }

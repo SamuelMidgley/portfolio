@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 
 const Sun = (props) => {
+  // TODO : Sort out typescript
+  // eslint-disable-next-line react/prop-types
   const { position, args } = props
 
   const mesh = useRef()

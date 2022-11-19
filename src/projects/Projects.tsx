@@ -1,26 +1,28 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import NewProjectCard from '../components/project-card/NewProjectCard'
-import { projects } from './api'
-import ProjectCard from './ProjectCard'
+import projects from './api'
 import './Projects.scss'
 
 export default function Projects() {
-  const [searchTerm, setSearchTerm] = useState()
-  
+  // const [searchTerm, setSearchTerm] = useState()
+
   return (
-    <div className='projects'>
-      <div className='projects-header'>
+    <div className="projects">
+      <div className="projects-header">
         <h1>Projects</h1>
-        <div className='projects-search'>
-          <input placeholder='search' />
+        <div className="projects-search">
+          <input placeholder="search" />
         </div>
       </div>
-      <div className='projects-grid'>
+      <div className="projects-grid">
         {projects.map((project) => {
           return (
-            <NewProjectCard project={project}/>
+            <NewProjectCard
+              key={(Math.random() * 1000000).toFixed(0)}
+              project={project}
+            />
           )
-        })}    
+        })}
       </div>
     </div>
 

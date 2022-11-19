@@ -6,11 +6,12 @@ interface SkillIconProps {
 
 function SkillIcon(props: SkillIconProps) {
   // Ideally make these clickable that takes you to the project page using that filter
-  // Might need redux set up
+  // Might need redux set up (or not can just pass in optional parameter for projects page)
+  const { name } = props
 
   return (
     <div>
-      <i className={`devicon-${props.name}`}></i>
+      <i className={`devicon-${name}`} />
     </div>
   )
 }

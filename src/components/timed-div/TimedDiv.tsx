@@ -11,7 +11,7 @@ const TimedDiv = (props: TimeDivProps) => {
   const { text, state, setState } = props
 
   useEffect(() => {
-    setTimeout(function () {
+    setTimeout(function setTimer() {
       setState(false)
     }, 10000)
   }, [state, setState])

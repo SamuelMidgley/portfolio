@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
 import { DoubleSide } from 'three'
@@ -7,6 +9,8 @@ const PlanetRing = (props) => {
   const { args } = props
 
   const mesh = useRef()
+  // TODO : Work out why linter aint happy
+  // eslint-disable-next-line no-return-assign
   useFrame(() => (mesh.current.rotation.x = Math.PI / 2))
 
   return (

@@ -1,13 +1,15 @@
 import './Button.scss'
 
 interface ButtonProps {
-    text: string
-    onClickHandler?: any
+  text: string
+  onClickHandler: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export default function Button(props : ButtonProps) {
-    return (
-    <button className='themed-button' onClick={props.onClickHandler}>
-        {props.text}
-    </button>)
+export default function Button(props: ButtonProps) {
+  const { text, onClickHandler } = props
+  return (
+    <button type="button" className="themed-button" onClick={onClickHandler}>
+      {text}
+    </button>
+  )
 }

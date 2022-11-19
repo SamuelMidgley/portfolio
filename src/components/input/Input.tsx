@@ -1,11 +1,14 @@
+import { ChangeEventHandler } from 'react'
 import './Input.scss'
 
-export default function Input(props: any) {
-    return (
-      <input
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={props.setValue}
-      />
-    )
+interface InputProps {
+  placeholder: string
+  value: string
+  setValue: ChangeEventHandler<HTMLInputElement>
+}
+
+export default function Input(props: InputProps) {
+  const { placeholder, value, setValue } = props
+
+  return <input placeholder={placeholder} value={value} onChange={setValue} />
 }

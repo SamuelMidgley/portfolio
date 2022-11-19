@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/button/Button'
 import NewProjectCard from '../../../components/project-card/NewProjectCard'
 import { randInt } from '../../../games/cssgame/cssgame.helper'
-import { projects } from '../../../projects/api'
+import projects from '../../../projects/api'
 import './MiniProject.scss'
 import RandomSvg from './RandomSvg'
 
@@ -12,10 +12,10 @@ export default function MiniProject() {
   const projectLength = projects.length - 1
   const navigate = useNavigate()
 
-  function randomHandler() {
+  const randomHandler = useCallback(() => {
     // Make sure both cards are different
     // Make sure either card is different to previous cards
-    let prevIdx = projectIdx
+    const prevIdx = projectIdx
     let firstIdx = randInt(projectLength)
     while (prevIdx.includes(firstIdx)) {
       firstIdx = randInt(projectLength)
@@ -30,11 +30,11 @@ export default function MiniProject() {
 
     const randomIdxs = [firstIdx, secondIdx]
     setProjectIdx(randomIdxs)
-  }
+  }, [projectIdx, projectLength])
 
-  function navigateToProjects() {
-    navigate("/portfolio/projects")
-  }
+  const navigateToProjects = useCallback(() => {
+    navigate('/portfolio/projects')
+  }, [navigate])
 
   return (
     <section className="mini-projects">

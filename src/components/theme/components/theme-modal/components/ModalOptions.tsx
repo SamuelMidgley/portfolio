@@ -1,14 +1,15 @@
 interface ModalOptionsProps {
   name: string
   option: string
-  children: any
+  children: React.ReactNode
 }
 
 export default function ModalOptions(props: ModalOptionsProps) {
+  const { name, option, children } = props
   return (
-    <div className={props.name}>
-      <span>{props.option}</span>
-      <div className={`${props.name}-options`}>{props.children}</div>
+    <div className={name}>
+      <span>{option}</span>
+      <div className={`${name}-options`}>{children}</div>
     </div>
   )
 }

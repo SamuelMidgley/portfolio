@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export const KeyLight = ({ brightness, color }) => {
   return (
     <rectAreaLight

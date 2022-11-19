@@ -3,7 +3,7 @@ import { ProjectCardProps } from './projects.types'
 const urlPrefix =
   'https://raw.githubusercontent.com/SamuelMidgley/portfolio/gh-pages/assets'
 
-export const projects: ProjectCardProps[] = [
+const projects: ProjectCardProps[] = [
   {
     title: 'Wordle',
     url: 'projects/wordle',
@@ -62,9 +62,11 @@ export const projects: ProjectCardProps[] = [
     title: 'Riddle MVC',
     url: 'riddle-db',
     summary:
-      'A simple CRUD application to store riddles using ASP.NET application with migrations',
+      'A simple CRUD application to store riddles using ASP.NET application with migrationsp',
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
     tags: ['C#', '.NET CORE'],
   },
 ]
+
+export default projects

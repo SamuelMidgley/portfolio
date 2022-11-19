@@ -10,7 +10,7 @@ const createCamera = () => {
     100,
     sizes.width / sizes.height,
     0.1,
-    100,
+    100
   )
   camera.position.x = 4
   camera.position.y = 10

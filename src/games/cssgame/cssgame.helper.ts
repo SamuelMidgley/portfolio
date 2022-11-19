@@ -40,11 +40,11 @@ export const valToHex = (val: number): string => {
   const num = val / 16
   const int = Math.floor(num)
 
-  let firstHex = singleValToHex(int)
+  const firstHex = singleValToHex(int)
 
   const remainderThingy = Math.floor((num - int) * 16)
 
-  let secondHex = singleValToHex(remainderThingy)
+  const secondHex = singleValToHex(remainderThingy)
 
   return `${firstHex}${secondHex}`
 }
@@ -53,7 +53,7 @@ export const generateHexCode = (): string => {
   const rgbVals = generateRGBVal()
 
   const hexCode = `#${valToHex(rgbVals.r)}${valToHex(rgbVals.g)}${valToHex(
-    rgbVals.b,
+    rgbVals.b
   )}`
 
   return hexCode

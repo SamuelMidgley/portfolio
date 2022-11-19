@@ -1,8 +1,14 @@
+import { ProjectCardProps } from '../../projects/projects.types'
 import Tags from './components/Tags'
 import './NewProjectCard.scss'
 
-export default function NewProjectCard(props: any) {
-  const exampleProject = props.project
+interface NewProjectCarProps {
+  project: ProjectCardProps
+}
+
+export default function NewProjectCard(props: NewProjectCarProps) {
+  const { project } = props
+  const exampleProject = project
   return (
     <div className="project-card">
       <div
@@ -13,7 +19,7 @@ export default function NewProjectCard(props: any) {
         <div className="title">{exampleProject.title}</div>
         <div className="summary">{exampleProject.summary}</div>
       </div>
-      <Tags tags={exampleProject.tags}></Tags>
+      <Tags tags={exampleProject.tags} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../../../../button/Button'
-import { setRootStyle } from '../../../theme.helper'
+import setRootStyle from '../../../theme.helper'
 import ModalOptions from './ModalOptions'
 import './LightDarkMode.scss'
 

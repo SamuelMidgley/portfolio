@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 const Planet = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { position, args, radius, offset } = props
 
   const mesh = useRef()
