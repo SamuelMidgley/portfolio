@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/button/Button'
 import NewProjectCard from '../../../components/project-card/NewProjectCard'
 import { randInt } from '../../../games/cssgame/cssgame.helper'
@@ -9,6 +10,7 @@ import RandomSvg from './RandomSvg'
 export default function MiniProject() {
   const [projectIdx, setProjectIdx] = useState([2, 4])
   const projectLength = projects.length - 1
+  const navigate = useNavigate()
 
   function randomHandler() {
     // Make sure both cards are different
@@ -30,12 +32,15 @@ export default function MiniProject() {
     setProjectIdx(randomIdxs)
   }
 
+  function navigateToProjects() {
+    navigate("/portfolio/projects")
+  }
+
   return (
     <section className="mini-projects">
       <div className="header-thingy">
         <h2>Projects</h2>
         <RandomSvg onClickHandler={randomHandler} />
-        {/* <Button onClickHandler={randomHandler} text="Rando" /> */}
       </div>
       <ul className="showcase">
         {projectIdx.map((idx) => (
@@ -43,7 +48,7 @@ export default function MiniProject() {
         ))}
       </ul>
       <div className="view-more">
-        <Button text="View more" />
+        <Button text="View more" onClickHandler={navigateToProjects} />
       </div>
     </section>
   )

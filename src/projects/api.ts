@@ -62,7 +62,7 @@ export const projects: ProjectCardProps[] = [
     title: 'Riddle MVC',
     url: 'riddle-db',
     summary:
-      'A simple CRUD application to store riddles using ASP.NET application with migrationsp',
+      'A simple CRUD application to store riddles using ASP.NET application with migrations',
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
     tags: ['C#', '.NET CORE'],
