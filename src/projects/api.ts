@@ -1,7 +1,7 @@
 import { ProjectCardProps } from './projects.types'
 
 const urlPrefix =
-  'https://raw.githubusercontent.com/SamuelMidgley/portfolio/gh-pages/assets'
+  'https://raw.githubusercontent.com/SamuelMidgley/portfolio/master/assets/'
 
 const projects: ProjectCardProps[] = [
   {
