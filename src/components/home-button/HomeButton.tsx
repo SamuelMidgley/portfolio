@@ -1,0 +1,29 @@
+import './HomeButton.scss'
+import { useNavigate } from 'react-router-dom'
+import { useCallback } from 'react'
+
+const HomeButton = () => {
+  const navigate = useNavigate()
+
+  const onClickHandler = useCallback(() => {
+    navigate('/portfolio')
+  }, [navigate])
+
+  return (
+    <div className="home-button">
+      <button type="button" onClick={onClickHandler}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 50 50"
+        >
+          <path d="M42 48H28V35h-8v13H6V27a1 1 0 1 1 2 0v19h10V33h12v13h10V28a1 1 0 1 1 2 0v20z" />
+          <path d="M47 27a.997.997 0 0 1-.691-.277L24 5.384 1.691 26.723a1 1 0 0 1-1.383-1.445L24 2.616l23.691 22.661A1 1 0 0 1 47 27zM39 15a1 1 0 0 1-1-1V8h-6a1 1 0 1 1 0-2h8v8a1 1 0 0 1-1 1z" />
+        </svg>
+      </button>
+    </div>
+  )
+}
+
+export default HomeButton

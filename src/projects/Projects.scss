@@ -7,17 +7,41 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 
     h1 {
       color: var(--font-color);
+      margin-bottom: 25px;
     }
 
     .projects-search {
-      ::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+
+      input {
+        width: 30ch;
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--theme-color);
         color: var(--font-color);
-        opacity: 1; /* Firefox */
+        padding: 10px;
+
+        &:focus-within {
+          outline: 0px;
+        }
+      }
+
+      button {
+        background-color: transparent;
+        border: 0px;
+        cursor: pointer;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--font-color);
       }
     }
   }
@@ -26,7 +50,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
-    gap: 15px 15px;
-    margin: 0px 75px;
+    gap: 35px 15px;
+  }
+
+  @media (min-width: 500px) {
+    .projects-grid {
+      margin: 0px 75px;
+    }
   }
 }

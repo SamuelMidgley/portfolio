@@ -13,10 +13,12 @@ import CssGame from './games/cssgame/CssGame'
 import Games from './games/Games'
 // import SolarSystem from './projects/solarsystem/SolarSystem'
 import Theme from './components/theme/Theme'
+import HomeButton from './components/home-button/HomeButton'
 
 export function App() {
   return (
     <>
+      <HomeButton />
       <Theme />
 
       <div id="content">

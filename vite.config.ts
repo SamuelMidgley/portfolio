@@ -14,4 +14,7 @@ export default defineConfig({
     setupFiles: ['./src/setupTests.ts'],
   },
   base: './',
+  server: {
+    open: '/',
+  },
 })
