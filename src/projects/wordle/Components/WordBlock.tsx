@@ -1,25 +1,30 @@
-import { WordBlockProps } from "../wordle.types";
-import classes from "./WordBlock.module.css";
+import { WordBlockProps } from '../wordle.types'
+import classes from './WordBlock.module.css'
 
 const WordBlock = (props: WordBlockProps) => {
+  const { guess } = props
   const checkLetter = (state: string): string => {
-    if (state === "correct") {
-      return `${classes.block} ${classes.correct}`;
-    } else if (state === "nearly") {
-      return `${classes.block} ${classes.nearly}`;
-    } else if (state === "incorrect") {
-      return `${classes.block} ${classes.incorrect}`;
+    let classList
+    // Make a switch case
+    if (state === 'correct') {
+      classList = `${classes.block} ${classes.correct}`
+    } else if (state === 'nearly') {
+      classList = `${classes.block} ${classes.nearly}`
+    } else if (state === 'incorrect') {
+      classList = `${classes.block} ${classes.incorrect}`
     } else {
-      return `${classes.block} ${classes.unknown}`;
+      classList = `${classes.block} ${classes.unknown}`
     }
-  };
+    return classList
+  }
+
   return (
     <div
       className={`${classes.word_block} ${
-        !props.guess.validWord ? classes.invalid_word : ""
+        !guess.validWord ? classes.invalid_word : ''
       }`}
     >
-      {props.guess.guess.map((letterState) => (
+      {guess.guess.map((letterState) => (
         <div
           key={(Math.random() * 1000000).toFixed(0)}
           className={checkLetter(letterState.state)}
@@ -28,7 +33,7 @@ const WordBlock = (props: WordBlockProps) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default WordBlock;
+export default WordBlock

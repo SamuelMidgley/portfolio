@@ -35,7 +35,7 @@ export function App() {
 
           <Route path="/portfolio/games" element={<Games />} />
           <Route
-            path="/portfolio/games/cssgame"
+            path="/portfolio/games/css-game"
             element={<CssGame easy={false} />}
           />
           {/* <Route

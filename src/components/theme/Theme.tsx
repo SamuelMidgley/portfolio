@@ -41,6 +41,7 @@ export default function Theme() {
   return (
     <div className="theme">
       <button
+        name="Theme options"
         type="button"
         className="theme-icon"
         onClick={settingsClickHandler}

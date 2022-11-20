@@ -17,7 +17,7 @@ const projects: ProjectCardProps[] = [
     title: 'Three.js Solar System',
     url: 'threejs-fun',
     summary:
-      'A <i>(semi)</i> accurate model of The Solar System written in Three.js. Repo includes hosted page.',
+      'A semi accurate model of The Solar System written in Three.js. Repo includes hosted page.',
     backgroundImage: `url(${urlPrefix}/solar.jpg)`,
     isLocal: false,
     tags: ['JS', 'ThreeJs'],
@@ -62,10 +62,18 @@ const projects: ProjectCardProps[] = [
     title: 'Riddle MVC',
     url: 'riddle-db',
     summary:
-      'A simple CRUD application to store riddles using ASP.NET application with migrationsp',
+      'A simple CRUD application to store riddles using ASP.NET application with migrations',
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
     tags: ['C#', '.NET CORE'],
+  },
+  {
+    title: 'CSS Game',
+    url: '/portfolio/games/css-game',
+    summary: 'A fun css based color guessing game',
+    backgroundImage: `url(${urlPrefix}/css-game.jpg)`,
+    isLocal: false,
+    tags: ['JS', 'React', 'CSS'],
   },
 ]
 

@@ -1,22 +1,23 @@
 import React from 'react'
+import classNames from 'classnames'
 import classes from './Keyboard.module.css'
 import { KeyboardProps } from '../wordle.types'
 import './Keyboard.css'
 
 const Keyboard = (props: KeyboardProps) => {
-  const classNames = require('classnames')
+  const { keyboardState, handleKeyPress, handleSubmit } = props
 
-  const row1 = props.keyboardState.slice(0, 10)
-  const row2 = props.keyboardState.slice(10, 19)
-  const row3 = props.keyboardState.slice(19, 26)
+  const row1 = keyboardState.slice(0, 10)
+  const row2 = keyboardState.slice(10, 19)
+  const row3 = keyboardState.slice(19, 26)
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    props.handleKeyPress((event.target as HTMLButtonElement).value)
+    handleKeyPress((event.target as HTMLButtonElement).value)
   }
 
   const submitHandler = () => {
-    props.handleSubmit()
+    handleSubmit()
   }
 
   return (
@@ -25,6 +26,7 @@ const Keyboard = (props: KeyboardProps) => {
         {row1.map((letterState) => (
           <button
             key={letterState.letter}
+            type="button"
             onClick={clickHandler}
             className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
@@ -37,6 +39,7 @@ const Keyboard = (props: KeyboardProps) => {
         {row2.map((letterState) => (
           <button
             key={letterState.letter}
+            type="button"
             onClick={clickHandler}
             className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
@@ -47,6 +50,7 @@ const Keyboard = (props: KeyboardProps) => {
       </div>
       <div className={classes.keyboard_row}>
         <button
+          type="button"
           onClick={submitHandler}
           className={classes.submit}
           value="Submit"
@@ -56,6 +60,7 @@ const Keyboard = (props: KeyboardProps) => {
         {row3.map((letterState) => (
           <button
             key={letterState.letter}
+            type="button"
             onClick={clickHandler}
             className={classNames(classes.keyboard_key, letterState.state)}
             value={letterState.letter}
@@ -64,6 +69,7 @@ const Keyboard = (props: KeyboardProps) => {
           </button>
         ))}
         <button
+          type="button"
           onClick={clickHandler}
           className={classes.delete}
           value="Delete"

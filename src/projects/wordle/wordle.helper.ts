@@ -12,7 +12,7 @@ export function countOccurance(word: string): CharCount[] {
   const wordArray = word.toLowerCase().split('')
   wordArray.forEach((letter) => {
     const filteredList = charCount.filter(
-      (letterObject) => letterObject.letter === letter,
+      (letterObject) => letterObject.letter === letter
     )
 
     if (filteredList.length > 0) {
@@ -46,7 +46,7 @@ export function correctWordBreakdown(word: string): CorrectWordBreakdown {
 export function theBigBoy(
   guessObject: Guess,
   keyboardState: LetterState[],
-  correctWordBreakdown: CorrectWordBreakdown,
+  correctWordBreakdown: CorrectWordBreakdown
 ) {
   // Loop through guess letters and assign state -> If letter is in correct place need to compare to breakdown
   // At the same time assign the keyboardState
@@ -74,7 +74,7 @@ export function theBigBoy(
       const charCount = correctWordBreakdown.breakdown.filter(
         (charCountObject) => {
           return charCountObject.letter === guessLetter
-        },
+        }
       )[0]
 
       if (charCount.count > 0) {
@@ -109,7 +109,7 @@ export function theBigBoy(
   guessObject.submitted = true
 
   const isCorrect = guessObject.guess.filter(
-    (LetterState) => LetterState.state === 'correct',
+    (LetterState) => LetterState.state === 'correct'
   )
 
   if (isCorrect.length === 5) {

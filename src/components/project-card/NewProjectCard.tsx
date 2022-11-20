@@ -8,18 +8,19 @@ interface NewProjectCarProps {
 
 export default function NewProjectCard(props: NewProjectCarProps) {
   const { project } = props
-  const exampleProject = project
   return (
-    <div className="project-card">
-      <div
-        className="image"
-        style={{ backgroundImage: exampleProject.backgroundImage }}
-      />
+    <li className="project-card">
+      <a title={project.title} href={project.url}>
+        <div
+          className="image"
+          style={{ backgroundImage: project.backgroundImage }}
+        />
+      </a>
       <div className="text-content">
-        <div className="title">{exampleProject.title}</div>
-        <div className="summary">{exampleProject.summary}</div>
+        <div className="title">{project.title}</div>
+        <div className="summary">{project.summary}</div>
       </div>
-      <Tags tags={exampleProject.tags} />
-    </div>
+      <Tags tags={project.tags} />
+    </li>
   )
 }

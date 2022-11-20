@@ -8,7 +8,7 @@ import './MiniProject.scss'
 import RandomSvg from './RandomSvg'
 
 export default function MiniProject() {
-  const [projectIdx, setProjectIdx] = useState([2, 4])
+  const [projectIdx, setProjectIdx] = useState([0, 7])
   const projectLength = projects.length - 1
   const navigate = useNavigate()
 
