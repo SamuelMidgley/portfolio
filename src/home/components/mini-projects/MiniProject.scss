@@ -27,6 +27,13 @@
     list-style: none;
   }
 
+  @media (max-width: 610px) {
+    .showcase {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
   .view-more {
     margin-top: 2rem;
     padding: 10px;
