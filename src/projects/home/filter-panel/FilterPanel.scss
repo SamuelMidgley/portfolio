@@ -1,0 +1,12 @@
+.options-title {
+  width: fit-content;
+  border-bottom: 1px solid var(--theme-color);
+  margin-bottom: 10px;
+}
+
+.option {
+  input {
+    accent-color: var(--theme-color);
+    margin-right: 5px;
+  }
+}

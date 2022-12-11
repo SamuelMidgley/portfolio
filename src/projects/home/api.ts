@@ -12,6 +12,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: true,
     tags: ['JS', 'React', 'HTML', 'CSS'],
+    key: '2045ffd2-d9ac-4a11-9b87-024d6219a580',
   },
   {
     title: 'Three.js Solar System',
@@ -21,6 +22,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/solar.jpg)`,
     isLocal: false,
     tags: ['JS', 'ThreeJs'],
+    key: 'ebb84a24-111c-4646-9cdc-097050e71033',
   },
   {
     title: 'RL Trader',
@@ -30,6 +32,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/stonks.jpg)`,
     isLocal: false,
     tags: ['Python', 'ML'],
+    key: '147f145c-d82e-4dec-84aa-8ed6c946f5e8',
   },
   {
     title: 'Tic Tac Go',
@@ -39,6 +42,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/tictactoe.jpg)`,
     isLocal: false,
     tags: ['Go'],
+    key: '58919928-83b2-452e-ba73-e720e59fa741',
   },
   {
     title: 'RL Flocking',
@@ -48,6 +52,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/sheepherding.jpg)`,
     isLocal: false,
     tags: ['C#', 'ML'],
+    key: 'c7079a35-03d0-4e3b-a126-5c6ef185cb3a',
   },
   {
     title: 'RecSys for DTI',
@@ -57,6 +62,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/drugdev.jpg)`,
     isLocal: false,
     tags: ['Python', 'PyTorch'],
+    key: 'bc37bf07-1804-4740-aa48-f1d79dd6447c',
   },
   {
     title: 'Riddle MVC',
@@ -66,6 +72,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
     tags: ['C#', '.NET CORE'],
+    key: '6f612624-43fb-4965-81f1-332f56bf36ab',
   },
   {
     title: 'CSS Game',
@@ -74,6 +81,7 @@ const projects: ProjectCardProps[] = [
     backgroundImage: `url(${urlPrefix}/css-game.jpg)`,
     isLocal: false,
     tags: ['JS', 'React', 'CSS'],
+    key: '82a65d47-96cf-466b-8eec-ee0bdb015c1d',
   },
 ]
 

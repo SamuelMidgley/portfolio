@@ -1,4 +1,4 @@
-import { ProjectCardProps } from '../../projects/projects.types'
+import { ProjectCardProps } from '../../projects/home/projects.types'
 import Tags from './components/Tags'
 import './NewProjectCard.scss'
 
@@ -8,6 +8,7 @@ interface NewProjectCarProps {
 
 export default function NewProjectCard(props: NewProjectCarProps) {
   const { project } = props
+
   return (
     <li className="project-card">
       <a title={project.title} href={project.url}>

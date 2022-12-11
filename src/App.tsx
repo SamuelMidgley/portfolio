@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom'
-import Projects from './projects/Projects'
+import Projects from './projects/home/Projects'
 import Home from './home/Home'
 import Wordle from './projects/wordle/Wordle'
 import CssGame from './games/cssgame/CssGame'
@@ -14,6 +14,7 @@ import Games from './games/Games'
 // import SolarSystem from './projects/solarsystem/SolarSystem'
 import Theme from './components/theme/Theme'
 import HomeButton from './components/home-button/HomeButton'
+import ScrollToTop from './components/scroll-to-top/ScrollToTop'
 
 export function App() {
   return (
@@ -51,6 +52,7 @@ export function App() {
 export function WrappedApp() {
   return (
     <Router>
+      <ScrollToTop />
       <App />
     </Router>
   )

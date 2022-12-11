@@ -22,22 +22,6 @@ export default function Theme() {
     setShowModal((prevState) => !prevState)
   }, [showModal])
 
-  // function settingsClickHandler() {
-  //   const contentElement = document.getElementById('content')
-  //   const rootElement = document.querySelector('body')
-  //   if (contentElement === null || rootElement === null) return
-
-  //   if (showModal) {
-  //     contentElement.style.filter = ''
-  //     rootElement.style.overflow = 'hidden auto'
-  //   } else {
-  //     contentElement.style.filter = 'blur(5px)'
-  //     rootElement.style.overflow = 'hidden'
-  //   }
-
-  //   setShowModal((prevState) => !prevState)
-  // }
-
   return (
     <div className="theme">
       <button
