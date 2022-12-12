@@ -4,6 +4,6 @@ export interface ProjectCardProps {
   summary: string
   isLocal: boolean
   url: string
-  tags?: string[]
+  tags: string[]
   key: string
 }

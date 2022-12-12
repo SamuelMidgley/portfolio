@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 interface IFilterOption {
   name: string
+  filterList: string[]
   onFilterClick: (filterState: IFilterState) => void
 }
 
@@ -11,8 +12,8 @@ export interface IFilterState {
 }
 
 export default function FilterOption(props: IFilterOption) {
-  const { name, onFilterClick } = props
-  const [checkState, setCheckState] = useState(false)
+  const { name, filterList, onFilterClick } = props
+  const [checkState, setCheckState] = useState(filterList.includes(name))
 
   const filterOptionClick = useCallback(
     (e: React.FormEvent) => {

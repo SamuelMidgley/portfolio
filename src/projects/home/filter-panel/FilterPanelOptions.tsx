@@ -2,14 +2,13 @@ import { IFilter } from './api'
 import FilterOption, { IFilterState } from './FilterOption'
 
 interface IFilterPanelOptions {
-  // name: string
-  // filterOptions: string[]
   filter: IFilter
+  filterList: string[]
   onFilterClick: (filterState: IFilterState) => void
 }
 
 export default function FilterPanelOptions(props: IFilterPanelOptions) {
-  const { filter, onFilterClick } = props
+  const { filter, filterList, onFilterClick } = props
 
   return (
     <>
@@ -21,6 +20,7 @@ export default function FilterPanelOptions(props: IFilterPanelOptions) {
             onFilterClick={onFilterClick}
             key={option}
             name={option}
+            filterList={filterList}
           />
         )
       })}

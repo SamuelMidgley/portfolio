@@ -6,12 +6,13 @@ import FilterPanelOptions from './FilterPanelOptions'
 import { IFilterState } from './FilterOption'
 
 interface ISidePanel {
+  filterList: string[]
   toggle: () => void
   onFilterClick: (filterState: IFilterState) => void
 }
 
 export default function FilterPanel(props: ISidePanel) {
-  const { toggle, onFilterClick } = props
+  const { filterList, toggle, onFilterClick } = props
 
   return (
     <SidePanel title="Filter Panel" toggle={toggle}>
@@ -21,6 +22,7 @@ export default function FilterPanel(props: ISidePanel) {
             onFilterClick={onFilterClick}
             key={filter.key}
             filter={filter}
+            filterList={filterList}
           />
         )
       })}

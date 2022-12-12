@@ -1,18 +1,27 @@
+import { useNavigate } from 'react-router-dom'
+
 import './Skills.scss'
 
 interface SkillIconProps {
   name: string
+  deviconName: string
 }
 
 function SkillIcon(props: SkillIconProps) {
-  // Ideally make these clickable that takes you to the project page using that filter
-  // Might need redux set up (or not can just pass in optional parameter for projects page)
-  const { name } = props
+  const navigate = useNavigate()
+
+  function onClickHandler(e: React.MouseEvent<HTMLButtonElement>) {
+    const filter = (e.target as HTMLButtonElement).title
+    console.log((e.target as HTMLButtonElement).title)
+    navigate('/portfolio/projects', { state: { filter } })
+  }
+
+  const { name, deviconName } = props
 
   return (
-    <div>
-      <i className={`devicon-${name}`} />
-    </div>
+    <button title={name} type="button" onClick={onClickHandler}>
+      <i title={name} className={`devicon-${deviconName}`} />
+    </button>
   )
 }
 
@@ -21,22 +30,22 @@ export default function Skills() {
     <div className="skills">
       <h2>Skills</h2>
       <div className="skill-icons">
-        <SkillIcon name="html5-plain" />
-        <SkillIcon name="css3-plain" />
-        <SkillIcon name="sass-original" />
+        <SkillIcon name="HTML" deviconName="html5-plain" />
+        <SkillIcon name="CSS" deviconName="css3-plain" />
+        <SkillIcon name="CSS" deviconName="sass-original" />
       </div>
       <div className="skill-icons">
-        <SkillIcon name="javascript-plain" />
-        <SkillIcon name="react-original" />
-        <SkillIcon name="redux-original" />
-        <SkillIcon name="threejs-original" />
+        <SkillIcon name="JS" deviconName="javascript-plain" />
+        <SkillIcon name="React" deviconName="react-original" />
+        <SkillIcon name="React" deviconName="redux-original" />
+        <SkillIcon name="ThreeJs" deviconName="threejs-original" />
       </div>
       <div className="skill-icons">
-        <SkillIcon name="csharp-plain" />
-        <SkillIcon name="dotnetcore-plain" />
-        <SkillIcon name="python-plain" />
-        <SkillIcon name="pytorch-plain" />
-        <SkillIcon name="go-original-wordmark" />
+        <SkillIcon name="C#" deviconName="csharp-plain" />
+        <SkillIcon name=".NET Core" deviconName="dotnetcore-plain" />
+        <SkillIcon name="Python" deviconName="python-plain" />
+        <SkillIcon name="PyTorch" deviconName="pytorch-plain" />
+        <SkillIcon name="Go" deviconName="go-original-wordmark" />
       </div>
     </div>
   )
