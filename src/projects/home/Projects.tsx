@@ -34,7 +34,7 @@ export default function Projects() {
   // Filters
   // Handle optional filter options
   useEffect(() => {
-    const optionalFilter = (location.state as any).filter
+    const optionalFilter = (location.state as any)?.filter
     if (optionalFilter) {
       setFilterList([optionalFilter])
     }
@@ -88,7 +88,6 @@ export default function Projects() {
   }
 
   function clearFilters() {
-    console.log('hello')
     const emptyList: string[] = []
     setFilterList(emptyList)
   }
