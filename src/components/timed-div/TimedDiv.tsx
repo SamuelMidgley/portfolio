@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import './TimedDiv.css'
+import './TimedDiv.scss'
 
 interface TimeDivProps {
   text: string

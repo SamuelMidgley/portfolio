@@ -52,11 +52,12 @@
           border: 1px solid var(--theme-color);
           border-radius: var(--border-radius);
           padding: 10px;
-          .title {
+
+          .timeline-title {
             border-bottom: 1px solid var(--theme-color);
           }
 
-          .summary {
+          .timeline-summary {
             font-size: 14px;
           }
         }

@@ -1,5 +1,4 @@
 import { TIMELINE_CONTENT, TimelineCardProps } from './api'
-import { randInt } from '../../../projects/cssgame/cssgame.helper'
 import './Timeline.scss'
 
 function TimelineCard(props: TimelineCardProps) {
@@ -11,8 +10,8 @@ function TimelineCard(props: TimelineCardProps) {
         <div className="time">{time}</div>
       </div>
       <div className="card-info">
-        <div className="title">{title}</div>
-        <div className="summary">{summary}</div>
+        <div className="timeline-title">{title}</div>
+        <div className="timeline-summary">{summary}</div>
       </div>
     </div>
   )
@@ -20,14 +19,14 @@ function TimelineCard(props: TimelineCardProps) {
 
 export default function Timeline() {
   return (
-    <div className="timeline">
+    <section className="timeline">
       <h2>Timeline</h2>
       <div className="timeline-block">
         <div className="line" />
         <div className="info">
           {TIMELINE_CONTENT.map((timeline_item) => (
             <TimelineCard
-              key={randInt(100000)}
+              key={timeline_item.key}
               title={timeline_item.title}
               summary={timeline_item.summary}
               time={timeline_item.time}
@@ -35,6 +34,6 @@ export default function Timeline() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/button/Button'
-import NewProjectCard from '../../../components/project-card/NewProjectCard'
+import ProjectCard from '../../../components/project-card/ProjectCard'
 import projects from '../../../projects/home/api'
 import './MiniProject.scss'
 import RandomSvg from './RandomSvg'
@@ -44,7 +44,7 @@ export default function MiniProject() {
       </div>
       <ul className="showcase">
         {projectIdx.map((idx) => (
-          <NewProjectCard key={idx} project={projects[idx]} />
+          <ProjectCard key={idx} project={projects[idx]} />
         ))}
       </ul>
       <div className="view-more">

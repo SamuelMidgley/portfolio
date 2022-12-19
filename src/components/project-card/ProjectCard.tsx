@@ -1,6 +1,6 @@
 import { ProjectCardProps } from '../../projects/home/projects.types'
 import Tags from './components/Tags'
-import './NewProjectCard.scss'
+import './ProjectCard.scss'
 
 interface NewProjectCarProps {
   project: ProjectCardProps

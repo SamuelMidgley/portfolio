@@ -1,5 +1,3 @@
-import './App.scss'
-
 import {
   Navigate,
   Route,
@@ -9,12 +7,13 @@ import {
 import Projects from './projects/home/Projects'
 import Home from './home/Home'
 import Wordle from './projects/wordle/Wordle'
-import CssGame from './games/cssgame/CssGame'
-import Games from './games/Games'
-// import SolarSystem from './projects/solarsystem/SolarSystem'
+import CssGame from './projects/cssgame/CssGame'
+import SolarSystem from './projects/solarsystem/SolarSystem'
 import Theme from './components/theme/Theme'
 import HomeButton from './components/home-button/HomeButton'
 import ScrollToTop from './components/scroll-to-top/ScrollToTop'
+
+import './App.scss'
 
 export function App() {
   return (
@@ -33,16 +32,14 @@ export function App() {
 
           <Route path="/portfolio/projects" element={<Projects />} />
           <Route path="/portfolio/projects/wordle" element={<Wordle />} />
-
-          <Route path="/portfolio/games" element={<Games />} />
           <Route
-            path="/portfolio/games/css-game"
+            path="/portfolio/projects/css-game"
             element={<CssGame easy={false} />}
           />
-          {/* <Route
-            path="/portfolio/games/solarsystem"
+          <Route
+            path="/portfolio/projects/solar-system"
             element={<SolarSystem />}
-          /> */}
+          />
         </Routes>
       </div>
     </>

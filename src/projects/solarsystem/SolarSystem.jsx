@@ -2,14 +2,14 @@ import { Canvas } from '@react-three/fiber'
 import createCamera from './components/camera'
 import PlanetAndPath from './components/PlanetAndPath'
 import Sun from './components/Sun'
-import './SolarSystem.css'
+import './SolarSystem.scss'
 
 const SolarSystem = () => {
   const camera = createCamera()
 
   return (
     <>
-      <div className="threejs-scene">
+      <div className="solar-system-scene">
         <Canvas camera={camera}>
           {/* Light */}
           <pointLight brightness={10} color="#fff" position={[0, 0, 0]} />
@@ -24,6 +24,10 @@ const SolarSystem = () => {
       </div>
       <div className="solar-system-title">
         <div>The Solar System</div>
+      </div>
+      <div className="solar-system-content">
+        <div>Hello</div>
+        <div>Hello</div>
       </div>
     </>
   )

@@ -16,7 +16,7 @@ const projects: ProjectCardProps[] = [
   },
   {
     title: 'Three.js Solar System',
-    url: 'threejs-fun',
+    url: '/portfolio/projects/solar-system',
     summary:
       'A semi accurate model of The Solar System written in Three.js. Repo includes hosted page.',
     backgroundImage: `url(${urlPrefix}/solar.jpg)`,
@@ -76,7 +76,7 @@ const projects: ProjectCardProps[] = [
   },
   {
     title: 'CSS Game',
-    url: '/portfolio/games/css-game',
+    url: '/portfolio/projects/css-game',
     summary: 'A fun css based color guessing game',
     backgroundImage: `url(${urlPrefix}/css-game.jpg)`,
     isLocal: false,

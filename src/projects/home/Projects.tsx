@@ -5,7 +5,7 @@ import FilterIcon from './FilterIcon'
 import { ProjectCardProps } from './projects.types'
 import FilterPanel from './filter-panel/FilterPanel'
 import { IFilterState } from './filter-panel/FilterOption'
-import NewProjectCard from '../../components/project-card/NewProjectCard'
+import ProjectCard from '../../components/project-card/ProjectCard'
 import './Projects.scss'
 
 export default function Projects() {
@@ -134,7 +134,7 @@ export default function Projects() {
         </div>
         <div className="projects-grid">
           {filteredProjects.map((project) => {
-            return <NewProjectCard key={project.key} project={project} />
+            return <ProjectCard key={project.key} project={project} />
           })}
         </div>
       </div>

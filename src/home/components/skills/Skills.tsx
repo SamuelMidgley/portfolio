@@ -12,7 +12,6 @@ function SkillIcon(props: SkillIconProps) {
 
   function onClickHandler(e: React.MouseEvent<HTMLButtonElement>) {
     const filter = (e.target as HTMLButtonElement).title
-    console.log((e.target as HTMLButtonElement).title)
     navigate('/portfolio/projects', { state: { filter } })
   }
 
@@ -27,7 +26,7 @@ function SkillIcon(props: SkillIconProps) {
 
 export default function Skills() {
   return (
-    <div className="skills">
+    <section className="skills">
       <h2>Skills</h2>
       <div className="skill-icons">
         <SkillIcon name="HTML" deviconName="html5-plain" />
@@ -47,6 +46,6 @@ export default function Skills() {
         <SkillIcon name="PyTorch" deviconName="pytorch-plain" />
         <SkillIcon name="Go" deviconName="go-original-wordmark" />
       </div>
-    </div>
+    </section>
   )
 }

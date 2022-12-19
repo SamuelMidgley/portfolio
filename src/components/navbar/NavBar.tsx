@@ -1,11 +1,11 @@
 import './NavBar.scss'
 
 import { useState } from 'react'
+import classNames from 'classnames'
 import MenuIcon from './components/MenuIcon'
 import NavMenuItem from './components/NavMenuItem'
 
 const NavBar = () => {
-  const classNames = require('classnames')
   const [showMenu, setShowMenu] = useState(false)
 
   return (

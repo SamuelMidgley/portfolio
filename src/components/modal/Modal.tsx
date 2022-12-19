@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import classes from './Modal.module.css'
+import './Modal.scss'
 
 interface ModalProps {
   title: string
@@ -14,11 +14,11 @@ const Modal = (props: ModalProps) => {
   if (!isOpen) return null
   const modalNode = document.getElementById('modal') as HTMLElement
   return ReactDOM.createPortal(
-    <div className={classes.card}>
-      <div className={classes.card_content}>
-        <span className={classes.title}>{title}</span>
-        <span className={classes.message}>{message}</span>
-        <button type="button" className={classes.button} onClick={toggleModal}>
+    <div className="modal-card">
+      <div className="card_content">
+        <span className="title">{title}</span>
+        <span className="message">{message}</span>
+        <button type="button" className="button" onClick={toggleModal}>
           {button}
         </button>
       </div>

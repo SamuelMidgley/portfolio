@@ -1,0 +1,25 @@
+/* .card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.modal-card {
+  .card_content {
+    height: 300px;
+    width: 300px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--clr-neutral-100);
+    background: hsl(209, 18%, 32%);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
