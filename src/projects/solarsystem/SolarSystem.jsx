@@ -26,8 +26,34 @@ const SolarSystem = () => {
         <div>The Solar System</div>
       </div>
       <div className="solar-system-content">
-        <div>Hello</div>
-        <div>Hello</div>
+        <div>
+          <div className="content-title">ThreeJS meets the Solar System</div>
+          <p>Hello</p>
+          <a href="https://www.solarsystemscope.com/textures/">
+            Link to Textures
+          </a>
+        </div>
+        <div className="solar-system-links">
+          <div className="links-title">Links</div>
+          <a
+            className="icon-link"
+            href="https://github.com/SamuelMidgley/threejs-fun"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="devicon-github-original" />
+            <div>GitHub Repo</div>
+          </a>
+          <a
+            className="icon-link"
+            href="https://samuelmidgley.github.io/threejs-fun/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="devicon-github-original" />
+            <div>GitHub Pages</div>
+          </a>
+        </div>
       </div>
     </>
   )

@@ -21,7 +21,7 @@ const projects: ProjectCardProps[] = [
       'A semi accurate model of The Solar System written in Three.js. Repo includes hosted page.',
     backgroundImage: `url(${urlPrefix}/solar.jpg)`,
     isLocal: false,
-    tags: ['JS', 'ThreeJs'],
+    tags: ['JS', 'ThreeJS'],
     key: 'ebb84a24-111c-4646-9cdc-097050e71033',
   },
   {

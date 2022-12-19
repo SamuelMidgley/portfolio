@@ -12,7 +12,7 @@ const filters: IFilter[] = [
   },
   {
     name: 'Technologies & Skills',
-    options: ['React', '.NET Core', 'PyTorch', 'Machine Learning'],
+    options: ['React', '.NET Core', 'PyTorch', 'ML', 'ThreeJS'],
     key: '07fed847-a6e0-4498-9fec-6ededc8e4826',
   },
   {

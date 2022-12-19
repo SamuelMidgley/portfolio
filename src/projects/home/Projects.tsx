@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import projects from './api'
 import FilterIcon from './FilterIcon'
@@ -23,7 +23,7 @@ export default function Projects() {
     setSearchTerm(e.currentTarget.value)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setFilteredProjects(
       projects.filter((project) =>
         project.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -33,7 +33,7 @@ export default function Projects() {
 
   // Filters
   // Handle optional filter options
-  useEffect(() => {
+  useLayoutEffect(() => {
     const optionalFilter = (location.state as any)?.filter
     if (optionalFilter) {
       setFilterList([optionalFilter])
@@ -92,7 +92,7 @@ export default function Projects() {
     setFilterList(emptyList)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (filterList.length === 0) {
       setFilteredProjects(projects)
     } else {

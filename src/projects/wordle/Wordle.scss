@@ -1,14 +1,15 @@
-.title {
-  text-align: center;
-  color: white;
-  margin-top: 1rem;
-}
 
 .board {
   width: 500px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
+  
+  .title {
+    text-align: center;
+    color: white;
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 540px) {
