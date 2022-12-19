@@ -2,10 +2,10 @@ import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/button/Button'
 import NewProjectCard from '../../../components/project-card/NewProjectCard'
-import { randInt } from '../../../games/cssgame/cssgame.helper'
 import projects from '../../../projects/home/api'
 import './MiniProject.scss'
 import RandomSvg from './RandomSvg'
+import { randInt } from '../../../projects/cssgame/cssgame.helper'
 
 export default function MiniProject() {
   const [projectIdx, setProjectIdx] = useState([0, 7])

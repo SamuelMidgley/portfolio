@@ -1,5 +1,5 @@
 import { TIMELINE_CONTENT, TimelineCardProps } from './api'
-import { randInt } from '../../../games/cssgame/cssgame.helper'
+import { randInt } from '../../../projects/cssgame/cssgame.helper'
 import './Timeline.scss'
 
 function TimelineCard(props: TimelineCardProps) {

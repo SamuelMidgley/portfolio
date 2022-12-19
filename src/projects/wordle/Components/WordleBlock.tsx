@@ -1,7 +1,7 @@
 import WordBlock from './WordBlock'
 import classes from './WordleBlock.module.css'
 import { WordleBlockProps } from '../wordle.types'
-import { randInt } from '../../../games/cssgame/cssgame.helper'
+import { randInt } from '../../cssgame/cssgame.helper'
 
 const WordleBlock = (props: WordleBlockProps) => {
   const { guesses } = props

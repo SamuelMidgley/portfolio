@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import WordleBlock from './Components/WordleBlock'
 import Keyboard from './Components/Keyboard'
-import classes from './Wordle.module.css'
 import { correctWordBreakdown, theBigBoy } from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
 import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
 import TimedDiv from '../../components/timed-div/TimedDiv'
+import './Wordle.scss'
 
 const chosenWord = correctWords[Math.floor(Math.random() * correctWords.length)]
 
@@ -26,11 +26,15 @@ const Wordle = () => {
   const submitHandler = useCallback(async () => {
     let isValidWord
     const currentGuess = guesses.filter((guess) => guess.id === numAttempts)[0]
-    if (currentGuess.guess[4].letter === '') return
+    if (currentGuess.guess[4].letter === '') {
+      // Word is incomplete so submit fails
+      return
+    }
 
     const guessWord = currentGuess.guess
       .map((LetterState) => LetterState.letter)
       .join('')
+
     // Check word is valid
     await dictionaryAPI(guessWord).then((res) => {
       if (res.title === 'No Definitions Found') {
@@ -49,6 +53,7 @@ const Wordle = () => {
             : { ...guessObject }
         )
       )
+      // Word is invalid so submit fails
       return
     }
 
@@ -72,6 +77,7 @@ const Wordle = () => {
       )
     )
 
+    // Move to next row
     setLetterIdx(0)
     setNumAttempts(numAttempts + 1)
   }, [correctWord, guesses, keyboardState, numAttempts])
@@ -141,8 +147,8 @@ const Wordle = () => {
   }, [handleUserKeyPress])
 
   return (
-    <div className={classes.board}>
-      {/* <h1 className={classes.title}>Wordle</h1> */}
+    <div className="board">
+      <h1 className="title">Wordle</h1>
       <TimedDiv state={notAWord} setState={setNotAWord} text="Not a word!" />
       <WordleBlock guesses={guesses} />
       <Keyboard

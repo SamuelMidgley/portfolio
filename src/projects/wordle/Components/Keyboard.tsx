@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import classes from './Keyboard.module.css'
 import { KeyboardProps } from '../wordle.types'
-import './Keyboard.css'
+import './Keyboard.scss'
 
 const Keyboard = (props: KeyboardProps) => {
   const { keyboardState, handleKeyPress, handleSubmit } = props

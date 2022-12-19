@@ -71,7 +71,7 @@ const projects: ProjectCardProps[] = [
       'A simple CRUD application to store riddles using ASP.NET application with migrations',
     backgroundImage: `url(${urlPrefix}/riddle.jpg)`,
     isLocal: false,
-    tags: ['C#', '.NET CORE'],
+    tags: ['C#', '.NET Core'],
     key: '6f612624-43fb-4965-81f1-332f56bf36ab',
   },
   {

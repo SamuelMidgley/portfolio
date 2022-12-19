@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
-import { randInt } from '../../../games/cssgame/cssgame.helper'
 import Button from '../../button/Button'
 import './Tags.scss'
+import { randInt } from '../../../projects/cssgame/cssgame.helper'
 
 interface TagsProps {
   tags: string[] | undefined

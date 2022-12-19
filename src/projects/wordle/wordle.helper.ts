@@ -5,7 +5,6 @@ import {
   CharCount,
 } from './wordle.types'
 
-// Definitely a test for this
 export function countOccurance(word: string): CharCount[] {
   const charCount: CharCount[] = []
 
@@ -33,7 +32,7 @@ export function countOccurance(word: string): CharCount[] {
 
 export function correctWordBreakdown(word: string): CorrectWordBreakdown {
   const fullBreakdown: CorrectWordBreakdown = {
-    word: word,
+    word,
     breakdown: countOccurance(word),
   }
 
@@ -46,8 +45,13 @@ export function correctWordBreakdown(word: string): CorrectWordBreakdown {
 export function theBigBoy(
   guessObject: Guess,
   keyboardState: LetterState[],
-  correctWordBreakdown: CorrectWordBreakdown
+  correctWordBreakdownObj: CorrectWordBreakdown
 ) {
+  // Object needed, { letter, }
+  // For each letter
+  // Is letter present
+  // If yes, remove from count, check whether correct position,
+
   // Loop through guess letters and assign state -> If letter is in correct place need to compare to breakdown
   // At the same time assign the keyboardState
   for (let index = 0; index < 5; index++) {
