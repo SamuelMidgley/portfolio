@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import WordleBlock from './Components/WordleBlock'
-import Keyboard from './Components/Keyboard'
+import WordleBlock from './components/WordleBlock'
+import Keyboard from './components/Keyboard'
 import { correctWordBreakdown, theBigBoy } from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
@@ -8,13 +8,14 @@ import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
 import TimedDiv from '../../components/timed-div/TimedDiv'
 import './Wordle.scss'
 
-const chosenWord = correctWords[Math.floor(Math.random() * correctWords.length)]
+const correctWord =
+  correctWords[Math.floor(Math.random() * correctWords.length)]
 
 const Wordle = () => {
   // State management
-  const [correctWord, setCorrectWord] = useState(
-    correctWordBreakdown(chosenWord)
-  )
+  // const [correctWord, setCorrectWord] = useState(
+  //   correctWordBreakdown(chosenWord)
+  // )
   const [numAttempts, setNumAttempts] = useState(0)
   const [letterIdx, setLetterIdx] = useState(0)
   const [guesses, setGuesses] = useState(allGuesses)
@@ -57,7 +58,7 @@ const Wordle = () => {
       return
     }
 
-    const array = theBigBoy(currentGuess, keyboardState, correctWord)
+    // const array = theBigBoy(currentGuess, keyboardState, correctWord)
 
     const processedKeyboardState = array.keyboardState
     const processedGuessObject = array.guessObject
@@ -80,7 +81,7 @@ const Wordle = () => {
     // Move to next row
     setLetterIdx(0)
     setNumAttempts(numAttempts + 1)
-  }, [correctWord, guesses, keyboardState, numAttempts])
+  }, [guesses, keyboardState, numAttempts])
 
   // Handle keyboard changes
   const keyboardHandler = useCallback(

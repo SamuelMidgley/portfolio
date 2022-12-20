@@ -22,7 +22,7 @@ export function countOccurance(word: string): CharCount[] {
       })
     } else {
       charCount.push({
-        letter: letter,
+        letter,
         count: 1,
       })
     }
@@ -39,18 +39,47 @@ export function correctWordBreakdown(word: string): CorrectWordBreakdown {
   return fullBreakdown
 }
 
-// This needs to be split into two extra functions
-// One for keyboard
-// One for board
+interface IGuess {
+  letter: string
+  state: string
+}
+
+export function processGuess(guess: IGuess[], correctWord: string) {
+  const processedGuess: IGuess[] = []
+
+  guess.forEach((letterObject, index) => {
+    const { letter } = letterObject
+    if (!correctWord.includes(letter)) {
+      processedGuess.push({ letter, state: 'wrong' })
+    }
+    
+    if (correctWord.indexOf(''))
+  })
+}
+
 export function theBigBoy(
   guessObject: Guess,
   keyboardState: LetterState[],
   correctWordBreakdownObj: CorrectWordBreakdown
 ) {
-  // Object needed, { letter, }
   // For each letter
   // Is letter present
-  // If yes, remove from count, check whether correct position,
+  // If yes, check whether correct position
+  //    if yes, state = nearly
+  //    if no, state = correct
+  // If no, state = wrong
+
+  // At the end I will have the guess broken down into a list of objects with a letter and a state
+  // [{letter: 'a', state: 'wrong'}, {letter: 'b', state: 'nearly'}, {letter: 'c', state: 'correct'}, etc]
+
+  // Guesses
+  // Replace the current guess list index with this
+  // +1 to the guess number index and 0 the letter index
+
+  // Keyboard
+  // Loop through the list
+  // Adjust the keyboard state, hierarchy for adjusting
+  // unknown -> wrong -> nearly -> correct
 
   // Loop through guess letters and assign state -> If letter is in correct place need to compare to breakdown
   // At the same time assign the keyboardState
