@@ -14,6 +14,7 @@ import HomeButton from './components/home-button/HomeButton'
 import ScrollToTop from './components/scroll-to-top/ScrollToTop'
 
 import './App.scss'
+import NotFound from './NotFound'
 
 export function App() {
   return (
@@ -40,6 +41,7 @@ export function App() {
             path="/portfolio/projects/solar-system"
             element={<SolarSystem />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>
