@@ -1,9 +1,4 @@
-import {
-  Guess,
-  LetterState,
-  CorrectWordBreakdown,
-  CharCount,
-} from './wordle.types'
+import { CharCount, IGuess } from './wordle.types'
 
 export function countOccurance(word: string): CharCount[] {
   const charCount: CharCount[] = []
@@ -30,124 +25,63 @@ export function countOccurance(word: string): CharCount[] {
   return charCount
 }
 
-export function correctWordBreakdown(word: string): CorrectWordBreakdown {
-  const fullBreakdown: CorrectWordBreakdown = {
-    word,
-    breakdown: countOccurance(word),
-  }
-
-  return fullBreakdown
-}
-
-interface IGuess {
-  letter: string
-  state: string
-}
-
 export function processGuess(guess: IGuess[], correctWord: string) {
   const processedGuess: IGuess[] = []
+  // As i'm going along add to a new array which is like
+  // AGREE
+  // BEECH
+  // EPOCH
+  // { letter: count }
 
   guess.forEach((letterObject, index) => {
     const { letter } = letterObject
     if (!correctWord.includes(letter)) {
       processedGuess.push({ letter, state: 'wrong' })
+    } else if (letter === correctWord[index]) {
+      processedGuess.push({ letter, state: 'correct' })
+    } else {
+      processedGuess.push({ letter, state: 'nearly' })
     }
-    
-    if (correctWord.indexOf(''))
+
+    // BANAN
+    // A
+    //
   })
+
+  return processedGuess
 }
 
-export function theBigBoy(
-  guessObject: Guess,
-  keyboardState: LetterState[],
-  correctWordBreakdownObj: CorrectWordBreakdown
-) {
-  // For each letter
-  // Is letter present
-  // If yes, check whether correct position
-  //    if yes, state = nearly
-  //    if no, state = correct
-  // If no, state = wrong
+// INCLUDE TESTS
+export function getPriorityValue(state: string) {
+  if (state === 'invalid') return 0
+  if (state === 'wrong') return 1
+  if (state === 'nearly') return 2
+  if (state === 'correct') return 3
+  return -1
+}
 
-  // At the end I will have the guess broken down into a list of objects with a letter and a state
-  // [{letter: 'a', state: 'wrong'}, {letter: 'b', state: 'nearly'}, {letter: 'c', state: 'correct'}, etc]
+// INCLUDE TESTS
+export function shouldStateUpdate(currentState: string, newState: string) {
+  const currentStatePriority = getPriorityValue(currentState)
+  const newStatePriority = getPriorityValue(newState)
 
-  // Guesses
-  // Replace the current guess list index with this
-  // +1 to the guess number index and 0 the letter index
+  return newStatePriority >= currentStatePriority
+}
 
-  // Keyboard
-  // Loop through the list
-  // Adjust the keyboard state, hierarchy for adjusting
-  // unknown -> wrong -> nearly -> correct
+// INCLUDE TESTS
+export function processKeyboardState(guess: IGuess[], keyboardState: IGuess[]) {
+  let keyboardStateCopy = keyboardState
+  guess.forEach((guessObject) => {
+    const currentState = keyboardState.filter(
+      (keyboardObject) => keyboardObject.letter === guessObject.letter
+    )[0]
 
-  // Loop through guess letters and assign state -> If letter is in correct place need to compare to breakdown
-  // At the same time assign the keyboardState
-  for (let index = 0; index < 5; index++) {
-    const guessLetter = guessObject.guess[index].letter.toLowerCase()
-    const correctWord = correctWordBreakdown.word.toLowerCase()
-    if (correctWord[index] === guessLetter) {
-      // correct letter so lets drop one from count in correct word breakdown
-      correctWordBreakdown.breakdown.map((charCountObject) => {
-        return charCountObject.letter === guessLetter
-          ? { ...charCountObject, count: charCountObject.count-- }
-          : { ...charCountObject }
-      })
-
-      // Update the state of the letter for the main block
-      guessObject.guess[index].state = 'correct'
-
-      // Update the state of the keyboard
-      keyboardState = keyboardState.map((letterState) => {
-        return letterState.letter.toLowerCase() === guessLetter
-          ? { ...letterState, state: 'correct' }
-          : { ...letterState }
-      })
-    } else if (correctWord.includes(guessLetter)) {
-      const charCount = correctWordBreakdown.breakdown.filter(
-        (charCountObject) => {
-          return charCountObject.letter === guessLetter
-        }
-      )[0]
-
-      if (charCount.count > 0) {
-        // Update the state of the letter for the main block
-        guessObject.guess[index].state = 'nearly'
-
-        // Update the state of the keyboard
-        keyboardState = keyboardState.map((letterState) => {
-          return letterState.letter.toLowerCase() === guessLetter
-            ? { ...letterState, state: 'nearly' }
-            : { ...letterState }
-        })
-      } else {
-        guessObject.guess[index].state = 'incorrect'
-        // Update the state of the keyboard
-        keyboardState = keyboardState.map((letterState) => {
-          return letterState.letter.toLowerCase() === guessLetter
-            ? { ...letterState, state: 'incorrect' }
-            : { ...letterState }
-        })
-      }
-    } else {
-      guessObject.guess[index].state = 'incorrect'
-      // Update the state of the keyboard
-      keyboardState = keyboardState.map((letterState) => {
-        return letterState.letter.toLowerCase() === guessLetter
-          ? { ...letterState, state: 'incorrect' }
-          : { ...letterState }
-      })
+    if (shouldStateUpdate(currentState.state, guessObject.state)) {
+      keyboardStateCopy = keyboardStateCopy.map((keyObject) =>
+        keyObject.letter === guessObject.letter ? guessObject : keyObject
+      )
     }
-  }
-  guessObject.submitted = true
+  })
 
-  const isCorrect = guessObject.guess.filter(
-    (LetterState) => LetterState.state === 'correct'
-  )
-
-  if (isCorrect.length === 5) {
-    guessObject.correct = true
-  }
-
-  return { guessObject, keyboardState }
+  return keyboardStateCopy
 }

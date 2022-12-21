@@ -1,4 +1,4 @@
-import { Guess, LetterState } from './wordle.types'
+import { IAllGuesses, IGuess } from './wordle.types'
 
 export const correctWords = [
   'HOUSE',
@@ -10,9 +10,9 @@ export const correctWords = [
   'RHYME',
 ]
 
-export const allGuesses: Guess[] = [
+export const allGuesses: IAllGuesses[] = [
   {
-    id: 0,
+    key: 'blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -20,11 +20,9 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
   {
-    id: 1,
+    key: 'also blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -32,11 +30,9 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
   {
-    id: 2,
+    key: 'also also blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -44,11 +40,9 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
   {
-    id: 3,
+    key: 'boop blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -56,11 +50,9 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
   {
-    id: 4,
+    key: 'rah blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -68,11 +60,9 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
   {
-    id: 5,
+    key: 'rah heh blah',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -80,12 +70,10 @@ export const allGuesses: Guess[] = [
       { letter: '', state: '' },
       { letter: '', state: '' },
     ],
-    validWord: true,
-    submitted: false,
   },
 ]
 
-export const keyboardStateStart: LetterState[] = [
+export const keyboardStateStart: IGuess[] = [
   {
     letter: 'Q',
     state: 'Unknown',

@@ -1,12 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import WordleBlock from './components/WordleBlock'
 import Keyboard from './components/Keyboard'
-import { correctWordBreakdown, theBigBoy } from './wordle.helper'
+import {
+  correctWordBreakdown,
+  processGuess,
+  processKeyboardState,
+} from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
 import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
 import TimedDiv from '../../components/timed-div/TimedDiv'
 import './Wordle.scss'
+import { IAllGuesses } from './wordle.types'
 
 const correctWord =
   correctWords[Math.floor(Math.random() * correctWords.length)]
@@ -26,7 +31,7 @@ const Wordle = () => {
   // Handle submit
   const submitHandler = useCallback(async () => {
     let isValidWord
-    const currentGuess = guesses.filter((guess) => guess.id === numAttempts)[0]
+    const currentGuess = guesses[numAttempts]
     if (currentGuess.guess[4].letter === '') {
       // Word is incomplete so submit fails
       return
@@ -35,6 +40,11 @@ const Wordle = () => {
     const guessWord = currentGuess.guess
       .map((LetterState) => LetterState.letter)
       .join('')
+
+    if (guessWord === correctWord) {
+      setShowModal(true)
+      return
+    }
 
     // Check word is valid
     await dictionaryAPI(guessWord).then((res) => {
@@ -48,8 +58,8 @@ const Wordle = () => {
 
     if (isValidWord === false) {
       setGuesses((prevGuesses) =>
-        prevGuesses.map((guessObject) =>
-          guessObject.id === numAttempts
+        prevGuesses.map((guessObject, index) =>
+          index === numAttempts
             ? { ...guessObject, validWord: false }
             : { ...guessObject }
         )
@@ -58,25 +68,19 @@ const Wordle = () => {
       return
     }
 
-    // const array = theBigBoy(currentGuess, keyboardState, correctWord)
+    const processedGuess = processGuess(currentGuess.guess, correctWord)
 
-    const processedKeyboardState = array.keyboardState
-    const processedGuessObject = array.guessObject
-    processedGuessObject.validWord = true
-
-    if (processedGuessObject.correct === true) {
-      setShowModal(true)
-      return
-    }
-
-    setKeyboardState(processedKeyboardState)
     setGuesses((prevGuesses) =>
-      prevGuesses.map((guessObject) =>
-        guessObject.id === numAttempts
-          ? { ...processedGuessObject }
+      prevGuesses.map((guessObject, index) =>
+        index === numAttempts
+          ? { guess: processedGuess, key: guessObject.key }
           : { ...guessObject }
       )
     )
+
+    const newKeyboardState = processKeyboardState(processedGuess, keyboardState)
+
+    setKeyboardState(newKeyboardState)
 
     // Move to next row
     setLetterIdx(0)

@@ -1,3 +1,14 @@
+export interface IGuess {
+  letter: string
+  state: string
+}
+
+export interface IAllGuesses {
+  key: string
+  guess: IGuess[]
+  validWord?: boolean
+}
+
 export interface Guess {
   id: number
   guess: LetterState[]
