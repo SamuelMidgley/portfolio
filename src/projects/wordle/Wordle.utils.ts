@@ -12,7 +12,7 @@ export const correctWords = [
 
 export const allGuesses: IAllGuesses[] = [
   {
-    key: 'blah',
+    key: '219bf7a7-8392-43f6-9f5f-07ff78de13cc',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -22,7 +22,7 @@ export const allGuesses: IAllGuesses[] = [
     ],
   },
   {
-    key: 'also blah',
+    key: 'bb6f7e78-661c-4109-84c5-62238447738f',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -32,7 +32,7 @@ export const allGuesses: IAllGuesses[] = [
     ],
   },
   {
-    key: 'also also blah',
+    key: 'd78e920b-5661-44a8-8ffa-9716c16cba8e',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -42,7 +42,7 @@ export const allGuesses: IAllGuesses[] = [
     ],
   },
   {
-    key: 'boop blah',
+    key: '85d03072-1441-40e4-b32a-56a4fc2f6426',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -52,7 +52,7 @@ export const allGuesses: IAllGuesses[] = [
     ],
   },
   {
-    key: 'rah blah',
+    key: '031255ab-38de-483f-8618-6de7409e2fb1',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },
@@ -62,7 +62,7 @@ export const allGuesses: IAllGuesses[] = [
     ],
   },
   {
-    key: 'rah heh blah',
+    key: 'f8e1a3cd-89f8-4f71-850b-a9fb4438a42d',
     guess: [
       { letter: '', state: '' },
       { letter: '', state: '' },

@@ -1,17 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import WordleBlock from './components/WordleBlock'
 import Keyboard from './components/Keyboard'
-import {
-  correctWordBreakdown,
-  processGuess,
-  processKeyboardState,
-} from './wordle.helper'
+import { processGuess, processKeyboardState } from './wordle.helper'
 import dictionaryAPI from './api'
 import Modal from '../../components/modal/Modal'
 import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
 import TimedDiv from '../../components/timed-div/TimedDiv'
 import './Wordle.scss'
-import { IAllGuesses } from './wordle.types'
 
 const correctWord =
   correctWords[Math.floor(Math.random() * correctWords.length)]
@@ -92,7 +87,7 @@ const Wordle = () => {
     (key: string) => {
       if (letterIdx >= 0 && (letterIdx < 5 || key === 'Delete')) {
         const currentGuess = guesses.filter(
-          (guess) => guess.id === numAttempts
+          (guess, index) => index === numAttempts
         )[0]
         if (key === 'Delete') {
           if (letterIdx > 0) {
@@ -107,10 +102,8 @@ const Wordle = () => {
           setLetterIdx((prevIdx) => prevIdx + 1)
         }
         setGuesses(
-          guesses.map((guessObject) =>
-            guessObject.id === numAttempts
-              ? { ...currentGuess }
-              : { ...guessObject }
+          guesses.map((guessObject, index) =>
+            index === numAttempts ? { ...currentGuess } : { ...guessObject }
           )
         )
       }

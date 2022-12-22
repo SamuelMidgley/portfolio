@@ -1,19 +1,18 @@
 import WordBlock from './WordBlock'
-import classes from './WordleBlock.module.css'
-import { WordleBlockProps } from '../wordle.types'
-import { randInt } from '../../cssgame/cssgame.helper'
+import { IAllGuesses } from '../wordle.types'
+import './WordleBlock.scss'
 
-const WordleBlock = (props: WordleBlockProps) => {
+interface IWordleBlock {
+  guesses: IAllGuesses[]
+}
+
+const WordleBlock = (props: IWordleBlock) => {
   const { guesses } = props
   return (
-    <div className={classes.wordle_block}>
-      <div className={classes.wordle}>
-        {guesses.map((wordObject) => (
-          <WordBlock
-            key={randInt(100000)}
-            guess={wordObject}
-            className={classes.word_block}
-          />
+    <div className="wordle_block">
+      <div className="wordle">
+        {guesses.map((guessObject) => (
+          <WordBlock key={guessObject.key} guess={guessObject.guess} />
         ))}
       </div>
     </div>

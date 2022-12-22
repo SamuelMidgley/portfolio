@@ -1,34 +1,18 @@
-import { WordBlockProps } from '../wordle.types'
-import classes from './WordBlock.module.css'
+import classNames from 'classnames'
+import { IGuess } from '../wordle.types'
+import './WordBlock.scss'
 
-const WordBlock = (props: WordBlockProps) => {
+interface IWordBlock {
+  guess: IGuess[]
+}
+
+const WordBlock = (props: IWordBlock) => {
   const { guess } = props
-  const checkLetter = (state: string): string => {
-    let classList
-    // Make a switch case
-    if (state === 'correct') {
-      classList = `${classes.block} ${classes.correct}`
-    } else if (state === 'nearly') {
-      classList = `${classes.block} ${classes.nearly}`
-    } else if (state === 'incorrect') {
-      classList = `${classes.block} ${classes.incorrect}`
-    } else {
-      classList = `${classes.block} ${classes.unknown}`
-    }
-    return classList
-  }
 
   return (
-    <div
-      className={`${classes.word_block} ${
-        !guess.validWord ? classes.invalid_word : ''
-      }`}
-    >
-      {guess.guess.map((letterState) => (
-        <div
-          key={(Math.random() * 1000000).toFixed(0)}
-          className={checkLetter(letterState.state)}
-        >
+    <div className={classNames('word_block', { invalid_word: false })}>
+      {guess.map((letterState, index) => (
+        <div key={index} className={letterState.state}>
           {letterState.letter}
         </div>
       ))}

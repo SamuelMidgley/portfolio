@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import classes from './Keyboard.module.css'
 import { KeyboardProps } from '../wordle.types'
 import './Keyboard.scss'
 
@@ -21,38 +20,38 @@ const Keyboard = (props: KeyboardProps) => {
   }
 
   return (
-    <div className={classes.keyboard}>
-      <div className={classes.keyboard_row}>
+    <div className="keyboard">
+      <div className="keyboard_row">
         {row1.map((letterState) => (
           <button
             key={letterState.letter}
             type="button"
             onClick={clickHandler}
-            className={classNames(classes.keyboard_key, letterState.state)}
+            className={classNames('keyboard_key', `${letterState.state}`)}
             value={letterState.letter}
           >
             {letterState.letter}
           </button>
         ))}
       </div>
-      <div className={classes.keyboard_row}>
+      <div className="keyboard_row">
         {row2.map((letterState) => (
           <button
             key={letterState.letter}
             type="button"
             onClick={clickHandler}
-            className={classNames(classes.keyboard_key, letterState.state)}
+            className={classNames('keyboard_key', `${letterState.state}`)}
             value={letterState.letter}
           >
             {letterState.letter}
           </button>
         ))}
       </div>
-      <div className={classes.keyboard_row}>
+      <div className="keyboard_row">
         <button
           type="button"
           onClick={submitHandler}
-          className={classes.submit}
+          className="keyboard_submit"
           value="Submit"
         >
           ENTER
@@ -62,7 +61,7 @@ const Keyboard = (props: KeyboardProps) => {
             key={letterState.letter}
             type="button"
             onClick={clickHandler}
-            className={classNames(classes.keyboard_key, letterState.state)}
+            className={classNames('keyboard_key', `${letterState.state}`)}
             value={letterState.letter}
           >
             {letterState.letter}
@@ -71,7 +70,7 @@ const Keyboard = (props: KeyboardProps) => {
         <button
           type="button"
           onClick={clickHandler}
-          className={classes.delete}
+          className="keyboard_delete"
           value="Delete"
         >
           <svg

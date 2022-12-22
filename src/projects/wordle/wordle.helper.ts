@@ -1,57 +1,78 @@
-import { CharCount, IGuess } from './wordle.types'
+import { IGuess } from './wordle.types'
 
-export function countOccurance(word: string): CharCount[] {
-  const charCount: CharCount[] = []
+interface ICount {
+  letter: string
+  count: number
+}
+
+export function countOccuranceWithMap(word: string) {
+  const map = new Map<string, number>()
 
   const wordArray = word.toLowerCase().split('')
   wordArray.forEach((letter) => {
-    const filteredList = charCount.filter(
-      (letterObject) => letterObject.letter === letter
-    )
+    const count = map.get(letter)
 
-    if (filteredList.length > 0) {
-      charCount.map((letterObject) => {
-        return letterObject.letter === letter
-          ? { ...letterObject, count: letterObject.count++ }
-          : { ...letterObject }
-      })
+    if (count === undefined) {
+      map.set(letter, 1)
     } else {
-      charCount.push({
-        letter,
-        count: 1,
-      })
+      map.set(letter, count + 1)
     }
   })
-  return charCount
+
+  // const array = Array.from(map, ([name, value]) => ({
+  //   letter: name,
+  //   count: value,
+  // }))
+  return map
 }
 
 export function processGuess(guess: IGuess[], correctWord: string) {
   const processedGuess: IGuess[] = []
-  // As i'm going along add to a new array which is like
-  // AGREE
-  // BEECH
-  // EPOCH
-  // { letter: count }
+  const breakdown = countOccuranceWithMap(correctWord)
 
   guess.forEach((letterObject, index) => {
     const { letter } = letterObject
+
     if (!correctWord.includes(letter)) {
       processedGuess.push({ letter, state: 'wrong' })
-    } else if (letter === correctWord[index]) {
-      processedGuess.push({ letter, state: 'correct' })
-    } else {
-      processedGuess.push({ letter, state: 'nearly' })
+      return
     }
 
-    // BANAN
-    // A
-    //
+    const wordCount = breakdown.get(letter) ?? 0
+
+    if (letter === correctWord[index]) {
+      if (wordCount > 0) {
+        breakdown.set(letter, wordCount - 1)
+        processedGuess.push({ letter, state: 'correct' })
+      } else {
+        let id = index
+        while (id >= 0) {
+          id -= 1
+          const prevGuess = processedGuess[id]
+          if (prevGuess.state === 'nearly') {
+            const matchedId = id
+            processedGuess.map((guessObject, guessId) =>
+              guessId === matchedId
+                ? { letter: guessObject.letter, state: 'wrong' }
+                : guess
+            )
+          }
+        }
+      }
+      return
+    }
+
+    if (wordCount > 0) {
+      breakdown.set(letter, wordCount - 1)
+      processedGuess.push({ letter, state: 'nearly' })
+    } else {
+      processedGuess.push({ letter, state: 'wrong' })
+    }
   })
 
   return processedGuess
 }
 
-// INCLUDE TESTS
 export function getPriorityValue(state: string) {
   if (state === 'invalid') return 0
   if (state === 'wrong') return 1
@@ -60,12 +81,11 @@ export function getPriorityValue(state: string) {
   return -1
 }
 
-// INCLUDE TESTS
 export function shouldStateUpdate(currentState: string, newState: string) {
   const currentStatePriority = getPriorityValue(currentState)
   const newStatePriority = getPriorityValue(newState)
 
-  return newStatePriority >= currentStatePriority
+  return newStatePriority > currentStatePriority
 }
 
 // INCLUDE TESTS
