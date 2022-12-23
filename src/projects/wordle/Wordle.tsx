@@ -8,8 +8,8 @@ import { allGuesses, correctWords, keyboardStateStart } from './Wordle.utils'
 import TimedDiv from '../../components/timed-div/TimedDiv'
 import './Wordle.scss'
 
-const correctWord =
-  correctWords[Math.floor(Math.random() * correctWords.length)]
+const correctWord = 'RHYME'
+// correctWords[Math.floor(Math.random() * correctWords.length)]
 
 const Wordle = () => {
   // State management
@@ -25,6 +25,7 @@ const Wordle = () => {
 
   // Handle submit
   const submitHandler = useCallback(async () => {
+    console.time('Wordle')
     let isValidWord
     const currentGuess = guesses[numAttempts]
     if (currentGuess.guess[4].letter === '') {
@@ -80,6 +81,7 @@ const Wordle = () => {
     // Move to next row
     setLetterIdx(0)
     setNumAttempts(numAttempts + 1)
+    console.timeEnd('Wordle')
   }, [guesses, keyboardState, numAttempts])
 
   // Handle keyboard changes

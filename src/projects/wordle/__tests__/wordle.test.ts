@@ -11,29 +11,6 @@ it('Count Occurance', () => {
   expect(countOccuranceWithMap('ooOoO').get('o')).toBe(5)
   expect(countOccuranceWithMap('banana').get('a')).toBe(3)
   expect(countOccuranceWithMap('banana').get('n')).toBe(2)
-  // expect(countOccuranceWithMap('Ghoul')).toMatchObject([
-  //   { letter: 'g', count: 1 },
-  //   { letter: 'h', count: 1 },
-  //   { letter: 'o', count: 1 },
-  //   { letter: 'u', count: 1 },
-  //   { letter: 'l', count: 1 },
-  // ])
-  // expect(countOccuranceWithMap('RATED')).toMatchObject([
-  //   { letter: 'r', count: 1 },
-  //   { letter: 'a', count: 1 },
-  //   { letter: 't', count: 1 },
-  //   { letter: 'e', count: 1 },
-  //   { letter: 'd', count: 1 },
-  // ])
-  // expect(countOccuranceWithMap('ooooO')).toMatchObject([
-  //   { letter: 'o', count: 5 },
-  // ])
-  // expect(countOccuranceWithMap('bananas')).toMatchObject([
-  //   { letter: 'b', count: 1 },
-  //   { letter: 'a', count: 3 },
-  //   { letter: 'n', count: 2 },
-  //   { letter: 's', count: 1 },
-  // ])
 })
 
 it('Process Guess', () => {
@@ -95,6 +72,21 @@ it('Process Guess', () => {
     { letter: 'n', state: 'wrong' },
     { letter: 'g', state: 'wrong' },
     { letter: 's', state: 'wrong' },
+  ])
+
+  const TEST_5_GUESS_OBJECT = [
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+  ]
+  expect(processGuess(TEST_5_GUESS_OBJECT, 'ooeoo')).toMatchObject([
+    { letter: 'e', state: 'wrong' },
+    { letter: 'e', state: 'wrong' },
+    { letter: 'e', state: 'correct' },
+    { letter: 'e', state: 'wrong' },
+    { letter: 'e', state: 'wrong' },
   ])
 })
 

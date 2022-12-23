@@ -12,7 +12,7 @@ const WordBlock = (props: IWordBlock) => {
   return (
     <div className={classNames('word_block', { invalid_word: false })}>
       {guess.map((letterState, index) => (
-        <div key={index} className={letterState.state}>
+        <div key={index} className={classNames('block', letterState.state)}>
           {letterState.letter}
         </div>
       ))}

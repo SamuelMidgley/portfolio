@@ -27,7 +27,11 @@ export function countOccuranceWithMap(word: string) {
 }
 
 export function processGuess(guess: IGuess[], correctWord: string) {
-  const processedGuess: IGuess[] = []
+  // New idea
+  // When looping through only add correct values
+  // Store indexes of nearly values
+  // At the end loop through and if the count permits adjust the wrong states to be nearly
+  let processedGuess: IGuess[] = []
   const breakdown = countOccuranceWithMap(correctWord)
 
   guess.forEach((letterObject, index) => {
@@ -43,19 +47,23 @@ export function processGuess(guess: IGuess[], correctWord: string) {
     if (letter === correctWord[index]) {
       if (wordCount > 0) {
         breakdown.set(letter, wordCount - 1)
-        processedGuess.push({ letter, state: 'correct' })
+        const correctLetter: IGuess = { letter, state: 'correct' }
+        processedGuess.push(correctLetter)
       } else {
         let id = index
         while (id >= 0) {
           id -= 1
-          const prevGuess = processedGuess[id]
+          const prevGuess = guess[id]
           if (prevGuess.state === 'nearly') {
             const matchedId = id
-            processedGuess.map((guessObject, guessId) =>
-              guessId === matchedId
-                ? { letter: guessObject.letter, state: 'wrong' }
-                : guess
-            )
+            processedGuess = guess.map((guessObject, guessId) => {
+              const correctedLetter: IGuess = {
+                letter: guessObject.letter,
+                state: 'wrong',
+              }
+              const thingy = guessId === matchedId ? correctedLetter : guess
+              return thingy
+            })
           }
         }
       }
@@ -64,9 +72,11 @@ export function processGuess(guess: IGuess[], correctWord: string) {
 
     if (wordCount > 0) {
       breakdown.set(letter, wordCount - 1)
-      processedGuess.push({ letter, state: 'nearly' })
+      const nearlyLetter: IGuess = { letter, state: 'nearly' }
+      processedGuess.push(nearlyLetter)
     } else {
-      processedGuess.push({ letter, state: 'wrong' })
+      const wrongLetter: IGuess = { letter, state: 'wrong' }
+      processedGuess.push(wrongLetter)
     }
   })
 

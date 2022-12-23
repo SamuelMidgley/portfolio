@@ -18,13 +18,13 @@
 }
 
 .correct {
-  background-color: green;
+  background-color: green !important;
 }
 
 .nearly {
-  background-color: rgb(147, 147, 14);
+  background-color: rgb(147, 147, 14) !important;
 }
 
-.incorrect {
-  background-color: rgb(70, 70, 70);
+.wrong {
+  background-color: rgb(70, 70, 70) !important;
 }
