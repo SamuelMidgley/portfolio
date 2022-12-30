@@ -7,6 +7,7 @@ export interface IAllGuesses {
   key: string
   guess: IGuess[]
   validWord?: boolean
+  correctWord?: boolean
 }
 
 export interface Guess {

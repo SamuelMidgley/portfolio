@@ -23,3 +23,7 @@
 .invalid_word > div {
   border: 1px solid red;
 }
+
+.correct_word > div {
+  background-color: green !important;
+}

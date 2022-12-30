@@ -1,8 +1,8 @@
 import { IGuess } from './wordle.types'
 
-interface ICount {
+interface INearlyCount {
   letter: string
-  count: number
+  indexes: number[]
 }
 
 export function countOccuranceWithMap(word: string) {
@@ -19,65 +19,58 @@ export function countOccuranceWithMap(word: string) {
     }
   })
 
-  // const array = Array.from(map, ([name, value]) => ({
-  //   letter: name,
-  //   count: value,
-  // }))
   return map
 }
 
 export function processGuess(guess: IGuess[], correctWord: string) {
-  // New idea
-  // When looping through only add correct values
-  // Store indexes of nearly values
-  // At the end loop through and if the count permits adjust the wrong states to be nearly
   let processedGuess: IGuess[] = []
+  const nearlyMap = new Map<string, number[]>()
+
   const breakdown = countOccuranceWithMap(correctWord)
 
   guess.forEach((letterObject, index) => {
     const { letter } = letterObject
-
-    if (!correctWord.includes(letter)) {
-      processedGuess.push({ letter, state: 'wrong' })
-      return
-    }
-
     const wordCount = breakdown.get(letter) ?? 0
 
-    if (letter === correctWord[index]) {
-      if (wordCount > 0) {
+    if (correctWord.includes(letter)) {
+      if (letter === correctWord[index]) {
         breakdown.set(letter, wordCount - 1)
-        const correctLetter: IGuess = { letter, state: 'correct' }
-        processedGuess.push(correctLetter)
-      } else {
-        let id = index
-        while (id >= 0) {
-          id -= 1
-          const prevGuess = guess[id]
-          if (prevGuess.state === 'nearly') {
-            const matchedId = id
-            processedGuess = guess.map((guessObject, guessId) => {
-              const correctedLetter: IGuess = {
-                letter: guessObject.letter,
-                state: 'wrong',
-              }
-              const thingy = guessId === matchedId ? correctedLetter : guess
-              return thingy
-            })
-          }
-        }
+        processedGuess.push({ letter, state: 'correct' })
+        return
       }
-      return
+      const prevMapValue = nearlyMap.get(letter) ?? []
+      prevMapValue.push(index)
+      nearlyMap.set(letter, prevMapValue)
     }
 
-    if (wordCount > 0) {
-      breakdown.set(letter, wordCount - 1)
-      const nearlyLetter: IGuess = { letter, state: 'nearly' }
-      processedGuess.push(nearlyLetter)
-    } else {
-      const wrongLetter: IGuess = { letter, state: 'wrong' }
-      processedGuess.push(wrongLetter)
-    }
+    processedGuess.push({ letter, state: 'wrong' })
+  })
+
+  const nearlyArray = Array.from(
+    nearlyMap,
+    ([name, value]): INearlyCount => ({
+      letter: name,
+      indexes: value,
+    })
+  )
+
+  nearlyArray.forEach((letterCountObject) => {
+    let wordCount: number
+
+    letterCountObject.indexes.forEach((index) => {
+      wordCount = breakdown.get(letterCountObject.letter) ?? 0
+
+      if (wordCount > 0) {
+        breakdown.set(letterCountObject.letter, wordCount - 1)
+        processedGuess = processedGuess.map((guessObject, guessObjectIndex) => {
+          const nearlyState: IGuess = {
+            letter: guessObject.letter,
+            state: 'nearly',
+          }
+          return guessObjectIndex === index ? nearlyState : guessObject
+        })
+      }
+    })
   })
 
   return processedGuess

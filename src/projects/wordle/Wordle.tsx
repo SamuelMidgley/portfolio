@@ -38,6 +38,13 @@ const Wordle = () => {
       .join('')
 
     if (guessWord === correctWord) {
+      setGuesses((prevGuesses) =>
+        prevGuesses.map((guessObject, index) =>
+          index === numAttempts
+            ? { ...guessObject, correctWord: true }
+            : { ...guessObject }
+        )
+      )
       setShowModal(true)
       return
     }

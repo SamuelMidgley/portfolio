@@ -12,7 +12,11 @@ const WordleBlock = (props: IWordleBlock) => {
     <div className="wordle_block">
       <div className="wordle">
         {guesses.map((guessObject) => (
-          <WordBlock key={guessObject.key} guess={guessObject.guess} />
+          <WordBlock
+            key={guessObject.key}
+            guess={guessObject.guess}
+            correctWord={guessObject.correctWord ?? false}
+          />
         ))}
       </div>
     </div>

@@ -88,6 +88,36 @@ it('Process Guess', () => {
     { letter: 'e', state: 'wrong' },
     { letter: 'e', state: 'wrong' },
   ])
+
+  const TEST_6_GUESS_OBJECT = [
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+    { letter: 'o', state: 'n/a' },
+    { letter: 'e', state: 'n/a' },
+  ]
+  expect(processGuess(TEST_6_GUESS_OBJECT, 'ooeeo')).toMatchObject([
+    { letter: 'e', state: 'nearly' },
+    { letter: 'e', state: 'wrong' },
+    { letter: 'e', state: 'correct' },
+    { letter: 'o', state: 'nearly' },
+    { letter: 'e', state: 'wrong' },
+  ])
+
+  const TEST_7_GUESS_OBJECT = [
+    { letter: 'h', state: 'n/a' },
+    { letter: 'a', state: 'n/a' },
+    { letter: 'r', state: 'n/a' },
+    { letter: 'r', state: 'n/a' },
+    { letter: 'y', state: 'n/a' },
+  ]
+  expect(processGuess(TEST_7_GUESS_OBJECT, 'rhyme')).toMatchObject([
+    { letter: 'h', state: 'nearly' },
+    { letter: 'a', state: 'wrong' },
+    { letter: 'r', state: 'nearly' },
+    { letter: 'r', state: 'wrong' },
+    { letter: 'y', state: 'nearly' },
+  ])
 })
 
 it('Get Priority Value', () => {
