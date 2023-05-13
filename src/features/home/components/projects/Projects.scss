@@ -1,0 +1,26 @@
+.project-filters {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .filter_buttons {
+    padding: 5px 10px;
+    background-color: grey;
+    border: 0px;
+    border-radius: 5px;
+
+    &:first-child {
+      margin-left: auto;
+    }
+
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+}
+
+.projects-container {
+  column-count: 2;
+  column-gap: 20px;
+}

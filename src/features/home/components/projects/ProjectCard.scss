@@ -1,0 +1,45 @@
+.project-card {
+  position: relative;
+  width: 390px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  .project-card_image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    width: 390px;
+    border-radius: 5px;
+    z-index: -1;
+    background-repeat: no-repeat;
+  }
+
+  .project-card_container {
+    position: absolute;
+    width: 90%;
+    bottom: 5%;
+    left: 5%;
+  }
+
+  .project-card_title {
+    margin: 0px;
+  }
+
+  .project-card_summary {
+  }
+
+  .project-card_tag-container {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .project-card_tag {
+      border-radius: 5px;
+      background-color: grey;
+      width: fit-content;
+      padding: 0px 5px;
+    }
+  }
+}

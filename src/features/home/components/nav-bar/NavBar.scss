@@ -1,0 +1,25 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 90%;
+  justify-content: space-between;
+
+  .nav-bar_logo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+  }
+
+  .nav-bar_actions {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
