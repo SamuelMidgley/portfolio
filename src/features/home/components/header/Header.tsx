@@ -1,10 +1,11 @@
 import { GitHubIcon, LinkedInIcon } from '../../../../icons'
+import './Header.css'
 import './Header.scss'
 
 export default function Header() {
   return (
-    <div className="cool_thing">
-      <div className="content">
+    <div className="header-container">
+      <div className="swirls">
         <h1 className="title">@SamMidgley</h1>
       </div>
       <div className="bio">
