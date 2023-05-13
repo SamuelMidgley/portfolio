@@ -1,50 +1,8 @@
-.cool_thing {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 50px;
-
-  .content {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.25);
-    color: var(--font-color);
-    padding: 3rem 3rem;
-    position: relative;
-    display: grid;
-    align-content: center;
-    aspect-ratio: 9 / 4;
-    width: 450px;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    border-radius: var(--border-radius);
-    box-sizing: border-box;
-
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: 10;
-      inset: 0;
-      border: 3px solid var(--theme-color);
-      transform: translateZ(2rem);
-      border-radius: var(--border-radius);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: 0;
-      inset: 0;
-      background: rgba(229, 229, 229, 0.25);
-      transform: translateZ(-2rem);
-      border-radius: var(--border-radius);
-    }
-
-    &:hover {
-      transform: rotateY(32deg) rotateX(32deg);
-    }
-  }
+.header-container {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  margin-top: 150px;
 
   .title {
     position: relative;
@@ -56,6 +14,7 @@
   .bio {
     padding: 30px;
     border-bottom: 1px solid var(--theme-color);
+    margin-top: 10px;
     margin-bottom: 30px;
   }
 

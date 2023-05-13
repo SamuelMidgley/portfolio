@@ -1,0 +1,53 @@
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.swirls {
+  aspect-ratio: 9 / 4;
+  width: 450px;
+  background: #242424;
+  border-radius: 0.5rem;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.swirls::before,
+.swirls::after {
+  content: '';
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--int-1),
+    var(--int-2)
+  );
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+  transform: translateZ(-2rem);
+}
+
+.swirls::after {
+  /* transform: translateZ(2rem); */
+  filter: blur(1rem);
+}
+
+.swirls:hover {
+  transform: rotateY(32deg) rotateX(32deg);
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
