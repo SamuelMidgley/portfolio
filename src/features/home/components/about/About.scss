@@ -16,8 +16,22 @@
   }
 
   .about-details {
+    position: relative;
     padding: 2rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .about-details::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: -1px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   .about-list {
