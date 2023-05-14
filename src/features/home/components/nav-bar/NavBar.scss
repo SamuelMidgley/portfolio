@@ -8,6 +8,11 @@
   .nav-bar_logo {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
+
+    > a {
+      text-decoration: none;
+      color: var(--font-color);
+    }
   }
 
   .nav-bar_actions {

@@ -32,9 +32,9 @@ export default function About() {
                   React.
                 </li>
                 <li>
-                  Overhauled our <a>Personas</a> feature including a UI overhaul
-                  and significant changes to the back end to support complex
-                  groups.
+                  Extensive work on the <a>Personas</a> feature including a UI
+                  overhaul and significant changes to the back end to support
+                  complex groups.
                 </li>
                 <li>
                   Part of the team that developed our content creation system{' '}
