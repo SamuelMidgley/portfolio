@@ -24,3 +24,23 @@
   column-count: 2;
   column-gap: 20px;
 }
+
+.projects {
+  position: relative;
+  margin-top: 100px;
+
+  .projects-side {
+    transform: rotate(90deg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 8rem;
+    position: absolute;
+    top: 5rem;
+    left: -11.5rem;
+    color: rgba(255, 255, 255, 0.02);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
