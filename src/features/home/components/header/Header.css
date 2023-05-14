@@ -20,6 +20,7 @@
 
 .swirls::before,
 .swirls::after {
+  --gradient-angle: 90deg;
   content: '';
   position: absolute;
   inset: -0.2rem;
