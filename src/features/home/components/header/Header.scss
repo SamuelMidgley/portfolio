@@ -1,8 +1,9 @@
-.header-container {
+.header {
   display: grid;
   place-content: center;
   justify-items: center;
-  margin-top: 150px;
+  margin-top: 100px;
+  margin-bottom: 150px;
 
   .title {
     position: relative;

@@ -4,7 +4,7 @@ import './Header.scss'
 
 export default function Header() {
   return (
-    <div className="header-container">
+    <section className="header">
       <div className="swirls">
         <h1 className="title">@SamMidgley</h1>
       </div>
@@ -31,6 +31,6 @@ export default function Header() {
         <div className="read-more-mover" />
       </div>
       <div className="read-more-text">Scroll down to see more</div> */}
-    </div>
+    </section>
   )
 }
