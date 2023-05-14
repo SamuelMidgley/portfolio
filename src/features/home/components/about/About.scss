@@ -1,0 +1,67 @@
+.about {
+  position: relative;
+
+  .about-side {
+    transform: rotate(90deg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 8rem;
+    position: absolute;
+    top: 0rem;
+    left: -14rem;
+    color: rgba(255, 255, 255, 0.01);
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  .about-details {
+    padding: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .about-list {
+    list-style: none;
+
+    @media (max-width: 400px) {
+      font-size: 0.9rem;
+    }
+
+    .about-item {
+      position: relative;
+      margin-bottom: 2rem;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 12px;
+        width: 12px;
+        top: 10px;
+        left: -2.5rem;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        background-color: #1a1a1a;
+      }
+
+      a {
+        color: white;
+      }
+
+      .time-period {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .std-list {
+        padding-left: 3rem;
+      }
+
+      @media (max-width: 400px) {
+        .std-list {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
