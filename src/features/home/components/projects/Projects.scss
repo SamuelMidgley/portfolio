@@ -25,6 +25,14 @@
   column-gap: 20px;
 }
 
+@media (max-width: 1050px) {
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .projects {
   position: relative;
   margin-top: 100px;

@@ -1,9 +1,12 @@
 import { IProject } from './Projects'
 import toDoImage from '../../../../assets/to-do.png'
 import solarSystemImage from '../../../../assets/solar-system.png'
-// import cssGameImage from '../../../../assets/css-game.jpg'
 import flockingImage from '../../../../assets/flocking.png'
 import ticTacGoImage from '../../../../assets/tic-tac-go.png'
+import rlTraderImage from '../../../../assets/rl-trader.png'
+import recSysImage from '../../../../assets/recsys-dti.png'
+import wordleImage from '../../../../assets/wordle.png'
+import cssGameImage from '../../../../assets/css-game.png'
 
 export const projects: IProject[] = [
   {
@@ -36,9 +39,9 @@ export const projects: IProject[] = [
     summary:
       'Using an ML Recommender System to predict the interactions of drugs and proteins',
     tags: ['Python', 'PyTorch'],
-    imageSrc: '',
-    imageAlt: 'YEAH NOT SURE TBH',
-    imageHeight: 300,
+    imageSrc: recSysImage,
+    imageAlt: 'Screenshot of ...',
+    imageHeight: 235,
   },
   {
     title: 'Reinforcement Learning Flocking',
@@ -54,8 +57,24 @@ export const projects: IProject[] = [
     summary:
       'Different attempts at using Reinforcement Learning to create a trading bot',
     tags: ['Python'],
-    imageSrc: '',
-    imageAlt: 'YEAH NOT SURE TBH',
-    imageHeight: 300,
+    imageSrc: rlTraderImage,
+    imageAlt: 'Screenshot of ...',
+    imageHeight: 312,
+  },
+  {
+    title: 'Wordle clone',
+    summary: 'A Worlde clone created in React',
+    tags: ['React'],
+    imageSrc: wordleImage,
+    imageAlt: 'Screenshot of ...',
+    imageHeight: 432,
+  },
+  {
+    title: 'CSS Game',
+    summary: 'A truly innovative color guessing game',
+    tags: ['React'],
+    imageSrc: cssGameImage,
+    imageAlt: 'Screenshot of ...',
+    imageHeight: 358,
   },
 ]
