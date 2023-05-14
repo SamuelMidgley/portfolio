@@ -1,11 +1,16 @@
 import { IProject } from './Projects'
+import toDoImage from '../../../../assets/to-do.png'
+import solarSystemImage from '../../../../assets/solar-system.png'
+// import cssGameImage from '../../../../assets/css-game.jpg'
+import flockingImage from '../../../../assets/flocking.png'
+import ticTacGoImage from '../../../../assets/tic-tac-go.png'
 
 export const projects: IProject[] = [
   {
     title: 'To Do app',
     summary: 'A to do app written in Preact with Supabase as the backend',
     tags: ['Preact', 'Supabase', 'CSS'],
-    imageSrc: '/src/assets/to-do.png',
+    imageSrc: toDoImage,
     imageAlt: 'Screenshot of to do app',
     imageHeight: 250,
   },
@@ -13,7 +18,7 @@ export const projects: IProject[] = [
     title: 'Solar System',
     summary: 'A ThreeJS simulation of the Solar System using realistic maps',
     tags: ['JavaScript', 'ThreeJS'],
-    imageSrc: '/src/assets/solar-system.png',
+    imageSrc: solarSystemImage,
     imageAlt: 'Screenshot of Solar System simulation',
     imageHeight: 297,
   },
@@ -22,7 +27,7 @@ export const projects: IProject[] = [
     summary:
       'A console Tic Tac Toe application written in Go! Includes an unbeatable AI using the Minimax algorithm',
     tags: ['Go'],
-    imageSrc: '/src/assets/tic-tac-go.png',
+    imageSrc: ticTacGoImage,
     imageAlt: 'Screenshot of Tic Tac Go game',
     imageHeight: 390,
   },
@@ -40,7 +45,7 @@ export const projects: IProject[] = [
     summary:
       'Using Reinforcement Learning to train an AI sheepdog to herd a flock of sheep',
     tags: ['C#', 'Unity', 'ML Agents'],
-    imageSrc: '/src/assets/flocking.png',
+    imageSrc: flockingImage,
     imageAlt: 'Screenshot of training footage',
     imageHeight: 257,
   },
