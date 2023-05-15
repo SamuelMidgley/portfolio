@@ -4,9 +4,9 @@
   inherits: false;
 }
 
-.swirls {
-  aspect-ratio: 9 / 4;
-  width: 450px;
+.contact-button {
+  height: 40px;
+  width: 70px;
   background: #1a1a1a;
   border-radius: 0.5rem;
 
@@ -16,32 +16,40 @@
   justify-content: center;
   transform-style: preserve-3d;
   transition: transform 1s;
+  border: 0px;
+  color: white;
+  text-decoration: none;
 }
 
-.swirls::before,
-.swirls::after {
+.contact-button::before,
+.contact-button::after {
   --gradient-angle: 90deg;
   content: '';
   position: absolute;
-  inset: -0.2rem;
+  inset: -2px;
   z-index: -1;
+  background: rgba(255, 255, 255, 0.2);
+
+  border-radius: inherit;
+  transform: translateZ(-2rem);
+}
+
+.contact-button:hover {
+  cursor: pointer;
+}
+
+.contact-button:hover:after {
+  filter: blur(1rem);
+}
+
+.contact-button:hover::before,
+.contact-button:hover::after {
   background: linear-gradient(
     var(--gradient-angle),
     var(--int-1),
     var(--int-2)
   );
-  border-radius: inherit;
   animation: rotation 10s linear infinite;
-  transform: translateZ(-2rem);
-}
-
-.swirls::after {
-  /* transform: translateZ(2rem); */
-  filter: blur(1rem);
-}
-
-.swirls:hover {
-  transform: rotateY(32deg) rotateX(32deg);
 }
 
 @keyframes rotation {

@@ -8,11 +8,10 @@
     position: absolute;
     top: 0rem;
     left: -14rem;
-    color: rgba(255, 255, 255, 0.01);
-  }
-
-  h2 {
-    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.02);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
 
   .about-details {

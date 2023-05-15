@@ -1,4 +1,4 @@
-import { About, Header, NavBar } from './components'
+import { About, Contact, Header, NavBar, Projects } from './components'
 import './Home.scss'
 
 export default function Home() {
@@ -8,6 +8,8 @@ export default function Home() {
       <main className="main">
         <Header />
         <About />
+        <Projects />
+        <Contact />
       </main>
     </div>
   )
