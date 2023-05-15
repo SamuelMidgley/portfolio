@@ -16,12 +16,14 @@ export default function Header() {
         <a
           className="header-icon github-icon"
           href="https://github.com/SamuelMidgley"
+          aria-label="Github icon"
         >
           <GitHubIcon />
         </a>
         <a
           className="header-icon linkedin-icon"
           href="https://www.linkedin.com/in/samuelmidgley/"
+          aria-label="LinkedIn icon"
         >
           <LinkedInIcon />
         </a>
