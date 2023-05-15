@@ -16,6 +16,7 @@ export const projects: IProject[] = [
     imageSrc: toDoImage,
     imageAlt: 'Screenshot of to do app',
     imageHeight: 250,
+    link: 'https://github.com/SamuelMidgley/to-do',
   },
   {
     title: 'Solar System',
@@ -24,6 +25,7 @@ export const projects: IProject[] = [
     imageSrc: solarSystemImage,
     imageAlt: 'Screenshot of Solar System simulation',
     imageHeight: 297,
+    link: 'https://github.com/SamuelMidgley/threejs-fun',
   },
   {
     title: 'Tic Tac Go',
@@ -33,6 +35,7 @@ export const projects: IProject[] = [
     imageSrc: ticTacGoImage,
     imageAlt: 'Screenshot of Tic Tac Go game',
     imageHeight: 390,
+    link: 'https://github.com/SamuelMidgley/tic-tac-go',
   },
   {
     title: 'RecSys For DTI',
@@ -42,6 +45,7 @@ export const projects: IProject[] = [
     imageSrc: recSysImage,
     imageAlt: 'Screenshot of ...',
     imageHeight: 235,
+    link: 'https://github.com/SamuelMidgley/RecSys-for-DTI',
   },
   {
     title: 'Reinforcement Learning Flocking',
@@ -51,6 +55,7 @@ export const projects: IProject[] = [
     imageSrc: flockingImage,
     imageAlt: 'Screenshot of training footage',
     imageHeight: 257,
+    link: 'https://github.com/SamuelMidgley/rl-flocking',
   },
   {
     title: 'RL-Trader',
@@ -60,6 +65,7 @@ export const projects: IProject[] = [
     imageSrc: rlTraderImage,
     imageAlt: 'Screenshot of ...',
     imageHeight: 312,
+    link: 'https://github.com/SamuelMidgley/rl-trader',
   },
   {
     title: 'Wordle clone',
@@ -68,6 +74,7 @@ export const projects: IProject[] = [
     imageSrc: wordleImage,
     imageAlt: 'Screenshot of ...',
     imageHeight: 432,
+    link: 'https://samuelmidgley.github.io/portfolio-old/#/projects/wordle',
   },
   {
     title: 'CSS Game',
@@ -76,5 +83,6 @@ export const projects: IProject[] = [
     imageSrc: cssGameImage,
     imageAlt: 'Screenshot of ...',
     imageHeight: 358,
+    link: 'https://samuelmidgley.github.io/portfolio-old/#/projects/css-game',
   },
 ]

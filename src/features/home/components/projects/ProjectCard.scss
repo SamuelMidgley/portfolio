@@ -3,13 +3,22 @@
   width: 390px;
   border-radius: 5px;
   margin-bottom: 20px;
+  color: white;
 
   .project-card_container {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 90%;
+    bottom: 5%;
+    left: 5%;
+    transform: translateY(1rem);
+    transition: all 0.3s ease 0s;
   }
 
   &:hover .project-card_container {
     display: block;
+    transform: translateY(0rem);
+    opacity: 1;
   }
 
   &:hover::before {
@@ -35,18 +44,8 @@
     background-repeat: no-repeat;
   }
 
-  .project-card_container {
-    position: absolute;
-    width: 90%;
-    bottom: 5%;
-    left: 5%;
-  }
-
   .project-card_title {
     margin: 0px;
-  }
-
-  .project-card_summary {
   }
 
   .project-card_tag-container {
@@ -57,9 +56,16 @@
 
     .project-card_tag {
       border-radius: 5px;
-      background-color: grey;
+      background-color: #3a3a3a;
       width: fit-content;
       padding: 0px 5px;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .project-card .project-card_container {
+    opacity: 1;
+    transform: translateY(0rem);
   }
 }

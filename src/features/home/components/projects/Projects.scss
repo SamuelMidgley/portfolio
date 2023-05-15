@@ -3,12 +3,16 @@
   gap: 10px;
   width: 100%;
   margin-bottom: 1rem;
+  align-items: center;
+  min-height: 30px;
 
   .filter_buttons {
-    padding: 5px 10px;
-    background-color: grey;
+    padding: 0px 10px;
     border: 0px;
     border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s ease 0s;
 
     &:first-child {
       margin-left: auto;
@@ -16,6 +20,11 @@
 
     &:last-child {
       margin-right: auto;
+    }
+
+    &.active {
+      padding: 5px 22px;
+      background-color: #2a2a2a;
     }
   }
 }
