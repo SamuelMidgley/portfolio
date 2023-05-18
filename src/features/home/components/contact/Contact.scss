@@ -34,5 +34,10 @@
     padding: 10px;
     border-radius: 0.5rem;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: white;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 }
