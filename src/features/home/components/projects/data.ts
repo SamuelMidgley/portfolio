@@ -83,6 +83,6 @@ export const projects: IProject[] = [
     imageSrc: cssGameImage,
     imageAlt: 'Screenshot of ...',
     imageHeight: 358,
-    link: 'https://samuelmidgley.github.io/portfolio-old/#/projects/css-game',
+    link: 'https://guess-the-colour.vercel.app/',
   },
 ]
